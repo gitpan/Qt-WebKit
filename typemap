@@ -1,0 +1,418 @@
+# this typemap is only used by xsubpp
+# to marshal THIS in xs code
+QGraphicsTextItem *                     		T_PTROBJ_0000
+QWebHistoryInterface *                  		T_PTROBJ_0001
+QWebHitTestResult *                     		T_PTROBJ_0002
+QWebElementCollection::iterator *       		T_PTROBJ_0003
+QGraphicsPolygonItem *                  		T_PTROBJ_0004
+QGraphicsEllipseItem *                  		T_PTROBJ_0005
+QWebPage *                              		T_PTROBJ_0006
+QGraphicsRectItem *                     		T_PTROBJ_0007
+QWebElementCollection *                 		T_PTROBJ_0008
+QGraphicsWebView *                      		T_PTROBJ_0009
+QWebElement *                           		T_PTROBJ_0010
+QWebView *                              		T_PTROBJ_0011
+QSysInfo *                              		T_PTROBJ_0012
+QGraphicsObject *                       		T_PTROBJ_0013
+QWebPage::ErrorPageExtensionReturn *    		T_PTROBJ_0014
+QWebPage::ErrorPageExtensionOption *    		T_PTROBJ_0015
+QFlag *                                 		T_PTROBJ_0016
+QGraphicsSimpleTextItem *               		T_PTROBJ_0017
+QWebPluginFactory::MimeType *           		T_PTROBJ_0018
+QGraphicsItemGroup *                    		T_PTROBJ_0019
+QIncompatibleFlag *                     		T_PTROBJ_0020
+QInternal *                             		T_PTROBJ_0021
+QGraphicsLineItem *                     		T_PTROBJ_0022
+QGraphicsPathItem *                     		T_PTROBJ_0023
+QPainter *                              		T_PTROBJ_0024
+QAbstractGraphicsShapeItem *            		T_PTROBJ_0025
+QWebHistory *                           		T_PTROBJ_0026
+QGraphicsPixmapItem *                   		T_PTROBJ_0027
+QWebElementCollection::const_iterator * 		T_PTROBJ_0028
+QWebFrame *                             		T_PTROBJ_0029
+QWebPage::ChooseMultipleFilesExtensionReturn *		T_PTROBJ_0030
+QWebPluginFactory *                     		T_PTROBJ_0031
+QWebPage::ChooseMultipleFilesExtensionOption *		T_PTROBJ_0032
+QWebHistoryItem *                       		T_PTROBJ_0033
+QGraphicsWidget *                       		T_PTROBJ_0034
+QWebDatabase *                          		T_PTROBJ_0035
+QGraphicsItem *                         		T_PTROBJ_0036
+QWebSettings *                          		T_PTROBJ_0037
+QWebInspector *                         		T_PTROBJ_0038
+QWebSecurityOrigin *                    		T_PTROBJ_0039
+QBool *                                 		T_PTROBJ_0040
+
+################################################################
+INPUT
+T_PTROBJ_0000
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsTextItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsTextItem\");
+
+T_PTROBJ_0001
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebHistoryInterface\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebHistoryInterface\");
+
+T_PTROBJ_0002
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebHitTestResult\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebHitTestResult\");
+
+T_PTROBJ_0003
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebElementCollection::iterator\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebElementCollection::iterator\");
+
+T_PTROBJ_0004
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsPolygonItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsPolygonItem\");
+
+T_PTROBJ_0005
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsEllipseItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsEllipseItem\");
+
+T_PTROBJ_0006
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebPage\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebPage\");
+
+T_PTROBJ_0007
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsRectItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsRectItem\");
+
+T_PTROBJ_0008
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebElementCollection\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebElementCollection\");
+
+T_PTROBJ_0009
+    if (sv_derived_from($arg, \"Qt::WebKit::QGraphicsWebView\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QGraphicsWebView\");
+
+T_PTROBJ_0010
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebElement\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebElement\");
+
+T_PTROBJ_0011
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebView\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebView\");
+
+T_PTROBJ_0012
+    if (sv_derived_from($arg, \"Qt::Core::QSysInfo\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QSysInfo\");
+
+T_PTROBJ_0013
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsObject\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsObject\");
+
+T_PTROBJ_0014
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebPage::ErrorPageExtensionReturn\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebPage::ErrorPageExtensionReturn\");
+
+T_PTROBJ_0015
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebPage::ErrorPageExtensionOption\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebPage::ErrorPageExtensionOption\");
+
+T_PTROBJ_0016
+    if (sv_derived_from($arg, \"Qt::Core::QFlag\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QFlag\");
+
+T_PTROBJ_0017
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsSimpleTextItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsSimpleTextItem\");
+
+T_PTROBJ_0018
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebPluginFactory::MimeType\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebPluginFactory::MimeType\");
+
+T_PTROBJ_0019
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsItemGroup\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsItemGroup\");
+
+T_PTROBJ_0020
+    if (sv_derived_from($arg, \"Qt::Core::QIncompatibleFlag\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QIncompatibleFlag\");
+
+T_PTROBJ_0021
+    if (sv_derived_from($arg, \"Qt::Core::QInternal\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QInternal\");
+
+T_PTROBJ_0022
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsLineItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsLineItem\");
+
+T_PTROBJ_0023
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsPathItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsPathItem\");
+
+T_PTROBJ_0024
+    if (sv_derived_from($arg, \"Qt::Gui::QPainter\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QPainter\");
+
+T_PTROBJ_0025
+    if (sv_derived_from($arg, \"Qt::Gui::QAbstractGraphicsShapeItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QAbstractGraphicsShapeItem\");
+
+T_PTROBJ_0026
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebHistory\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebHistory\");
+
+T_PTROBJ_0027
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsPixmapItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsPixmapItem\");
+
+T_PTROBJ_0028
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebElementCollection::const_iterator\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebElementCollection::const_iterator\");
+
+T_PTROBJ_0029
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebFrame\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebFrame\");
+
+T_PTROBJ_0030
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebPage::ChooseMultipleFilesExtensionReturn\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebPage::ChooseMultipleFilesExtensionReturn\");
+
+T_PTROBJ_0031
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebPluginFactory\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebPluginFactory\");
+
+T_PTROBJ_0032
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebPage::ChooseMultipleFilesExtensionOption\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebPage::ChooseMultipleFilesExtensionOption\");
+
+T_PTROBJ_0033
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebHistoryItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebHistoryItem\");
+
+T_PTROBJ_0034
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsWidget\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsWidget\");
+
+T_PTROBJ_0035
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebDatabase\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebDatabase\");
+
+T_PTROBJ_0036
+    if (sv_derived_from($arg, \"Qt::Gui::QGraphicsItem\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Gui::QGraphicsItem\");
+
+T_PTROBJ_0037
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebSettings\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebSettings\");
+
+T_PTROBJ_0038
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebInspector\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebInspector\");
+
+T_PTROBJ_0039
+    if (sv_derived_from($arg, \"Qt::WebKit::QWebSecurityOrigin\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::QWebSecurityOrigin\");
+
+T_PTROBJ_0040
+    if (sv_derived_from($arg, \"Qt::Core::QBool\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QBool\");
+
+
+################################################################
+OUTPUT
+T_PTROBJ_0000
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsTextItem\", (void *)$var);
+
+T_PTROBJ_0001
+    sv_setref_pv($arg, \"Qt::WebKit::QWebHistoryInterface\", (void *)$var);
+
+T_PTROBJ_0002
+    sv_setref_pv($arg, \"Qt::WebKit::QWebHitTestResult\", (void *)$var);
+
+T_PTROBJ_0003
+    sv_setref_pv($arg, \"Qt::WebKit::QWebElementCollection::iterator\", (void *)$var);
+
+T_PTROBJ_0004
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsPolygonItem\", (void *)$var);
+
+T_PTROBJ_0005
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsEllipseItem\", (void *)$var);
+
+T_PTROBJ_0006
+    sv_setref_pv($arg, \"Qt::WebKit::QWebPage\", (void *)$var);
+
+T_PTROBJ_0007
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsRectItem\", (void *)$var);
+
+T_PTROBJ_0008
+    sv_setref_pv($arg, \"Qt::WebKit::QWebElementCollection\", (void *)$var);
+
+T_PTROBJ_0009
+    sv_setref_pv($arg, \"Qt::WebKit::QGraphicsWebView\", (void *)$var);
+
+T_PTROBJ_0010
+    sv_setref_pv($arg, \"Qt::WebKit::QWebElement\", (void *)$var);
+
+T_PTROBJ_0011
+    sv_setref_pv($arg, \"Qt::WebKit::QWebView\", (void *)$var);
+
+T_PTROBJ_0012
+    sv_setref_pv($arg, \"Qt::Core::QSysInfo\", (void *)$var);
+
+T_PTROBJ_0013
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsObject\", (void *)$var);
+
+T_PTROBJ_0014
+    sv_setref_pv($arg, \"Qt::WebKit::QWebPage::ErrorPageExtensionReturn\", (void *)$var);
+
+T_PTROBJ_0015
+    sv_setref_pv($arg, \"Qt::WebKit::QWebPage::ErrorPageExtensionOption\", (void *)$var);
+
+T_PTROBJ_0016
+    sv_setref_pv($arg, \"Qt::Core::QFlag\", (void *)$var);
+
+T_PTROBJ_0017
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsSimpleTextItem\", (void *)$var);
+
+T_PTROBJ_0018
+    sv_setref_pv($arg, \"Qt::WebKit::QWebPluginFactory::MimeType\", (void *)$var);
+
+T_PTROBJ_0019
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsItemGroup\", (void *)$var);
+
+T_PTROBJ_0020
+    sv_setref_pv($arg, \"Qt::Core::QIncompatibleFlag\", (void *)$var);
+
+T_PTROBJ_0021
+    sv_setref_pv($arg, \"Qt::Core::QInternal\", (void *)$var);
+
+T_PTROBJ_0022
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsLineItem\", (void *)$var);
+
+T_PTROBJ_0023
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsPathItem\", (void *)$var);
+
+T_PTROBJ_0024
+    sv_setref_pv($arg, \"Qt::Gui::QPainter\", (void *)$var);
+
+T_PTROBJ_0025
+    sv_setref_pv($arg, \"Qt::Gui::QAbstractGraphicsShapeItem\", (void *)$var);
+
+T_PTROBJ_0026
+    sv_setref_pv($arg, \"Qt::WebKit::QWebHistory\", (void *)$var);
+
+T_PTROBJ_0027
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsPixmapItem\", (void *)$var);
+
+T_PTROBJ_0028
+    sv_setref_pv($arg, \"Qt::WebKit::QWebElementCollection::const_iterator\", (void *)$var);
+
+T_PTROBJ_0029
+    sv_setref_pv($arg, \"Qt::WebKit::QWebFrame\", (void *)$var);
+
+T_PTROBJ_0030
+    sv_setref_pv($arg, \"Qt::WebKit::QWebPage::ChooseMultipleFilesExtensionReturn\", (void *)$var);
+
+T_PTROBJ_0031
+    sv_setref_pv($arg, \"Qt::WebKit::QWebPluginFactory\", (void *)$var);
+
+T_PTROBJ_0032
+    sv_setref_pv($arg, \"Qt::WebKit::QWebPage::ChooseMultipleFilesExtensionOption\", (void *)$var);
+
+T_PTROBJ_0033
+    sv_setref_pv($arg, \"Qt::WebKit::QWebHistoryItem\", (void *)$var);
+
+T_PTROBJ_0034
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsWidget\", (void *)$var);
+
+T_PTROBJ_0035
+    sv_setref_pv($arg, \"Qt::WebKit::QWebDatabase\", (void *)$var);
+
+T_PTROBJ_0036
+    sv_setref_pv($arg, \"Qt::Gui::QGraphicsItem\", (void *)$var);
+
+T_PTROBJ_0037
+    sv_setref_pv($arg, \"Qt::WebKit::QWebSettings\", (void *)$var);
+
+T_PTROBJ_0038
+    sv_setref_pv($arg, \"Qt::WebKit::QWebInspector\", (void *)$var);
+
+T_PTROBJ_0039
+    sv_setref_pv($arg, \"Qt::WebKit::QWebSecurityOrigin\", (void *)$var);
+
+T_PTROBJ_0040
+    sv_setref_pv($arg, \"Qt::Core::QBool\", (void *)$var);
+
