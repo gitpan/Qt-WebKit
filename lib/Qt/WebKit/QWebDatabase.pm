@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,27 +23,34 @@ Qt::WebKit::QWebDatabase
 
 =over
 
-=item    QWebDatabase(const QWebDatabase & other)
+=item   QWebDatabase()
 
-=item    ~QWebDatabase()
+=item   ~QWebDatabase()
 
-=item   QString displayName()
+=item  QString displayName()
 
-=item   qint64 expectedSize()
+=item  qint64 expectedSize()
 
-=item   QString fileName()
+=item  QString fileName()
 
-=item   QString name()
+=item  QString name()
 
-=item   QWebDatabase & operator=(const QWebDatabase & other)
+=item  QWebDatabase & operator=()
 
-=item   QWebSecurityOrigin origin()
+=item  QWebSecurityOrigin origin()
 
-=item   static void removeAllDatabases()
+=item  static void removeAllDatabases()
 
-=item   static void removeDatabase(const QWebDatabase & arg0)
+=item  static void removeDatabase()
 
-=item   qint64 size()
+=item  qint64 size()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

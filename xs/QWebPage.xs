@@ -18,42 +18,50 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QWebPage(QObject * parent = 0)
-##  QWebPage(QObject * parent)
+##  QWebPage()
+##  QWebPage( = 0)
   void
 QWebPage::new(...)
 PREINIT:
 QWebPage *ret;
-QObject * arg00 = 0;
-QObject * arg10;
+QObject * arg00;
+QObject * arg10 = 0;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        ret = new QWebPage(arg00);
-    ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "Qt::WebKit::QWebPage", (void *)ret);
-    XSRETURN(1);
-        break;
-      }
-    case 2:
-      {
-        if (sv_derived_from(ST(1), "")) {
-        arg10 = reinterpret_cast<QObject *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type ");
+        if (1) {
+      
     ret = new QWebPage(arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebPage", (void *)ret);
     XSRETURN(1);
+    }
         break;
       }
-    default:
+      case 2:
       {
+        if ((sv_derived_from(ST(1), "Qt::Core::QObject") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Core::QObject")) {
+        arg00 = reinterpret_cast<QObject *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
+    }
+    else
+        Perl_croak(aTHX_ "arg00 is not of type Qt::Core::QObject");
+    ret = new QWebPage(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::QWebPage", (void *)ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ##  ~QWebPage()
@@ -63,1071 +71,534 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## QAction * action(QWebPage::WebAction action)
+## QAction * action()
 void
 QWebPage::action(...)
 PREINIT:
 QWebPage::WebAction arg00;
 PPCODE:
-    switch(SvIV(ST(1))) {
-    case 0:
-      arg00 = QWebPage::NoWebAction;
-      break;
-    case 1:
-      arg00 = QWebPage::OpenLink;
-      break;
-    case 2:
-      arg00 = QWebPage::OpenLinkInNewWindow;
-      break;
-    case 3:
-      arg00 = QWebPage::OpenFrameInNewWindow;
-      break;
-    case 4:
-      arg00 = QWebPage::DownloadLinkToDisk;
-      break;
-    case 5:
-      arg00 = QWebPage::CopyLinkToClipboard;
-      break;
-    case 6:
-      arg00 = QWebPage::OpenImageInNewWindow;
-      break;
-    case 7:
-      arg00 = QWebPage::DownloadImageToDisk;
-      break;
-    case 8:
-      arg00 = QWebPage::CopyImageToClipboard;
-      break;
-    case 9:
-      arg00 = QWebPage::Back;
-      break;
-    case 10:
-      arg00 = QWebPage::Forward;
-      break;
-    case 11:
-      arg00 = QWebPage::Stop;
-      break;
-    case 12:
-      arg00 = QWebPage::Reload;
-      break;
-    case 13:
-      arg00 = QWebPage::Cut;
-      break;
-    case 14:
-      arg00 = QWebPage::Copy;
-      break;
-    case 15:
-      arg00 = QWebPage::Paste;
-      break;
-    case 16:
-      arg00 = QWebPage::Undo;
-      break;
-    case 17:
-      arg00 = QWebPage::Redo;
-      break;
-    case 18:
-      arg00 = QWebPage::MoveToNextChar;
-      break;
-    case 19:
-      arg00 = QWebPage::MoveToPreviousChar;
-      break;
-    case 20:
-      arg00 = QWebPage::MoveToNextWord;
-      break;
-    case 21:
-      arg00 = QWebPage::MoveToPreviousWord;
-      break;
-    case 22:
-      arg00 = QWebPage::MoveToNextLine;
-      break;
-    case 23:
-      arg00 = QWebPage::MoveToPreviousLine;
-      break;
-    case 24:
-      arg00 = QWebPage::MoveToStartOfLine;
-      break;
-    case 25:
-      arg00 = QWebPage::MoveToEndOfLine;
-      break;
-    case 26:
-      arg00 = QWebPage::MoveToStartOfBlock;
-      break;
-    case 27:
-      arg00 = QWebPage::MoveToEndOfBlock;
-      break;
-    case 28:
-      arg00 = QWebPage::MoveToStartOfDocument;
-      break;
-    case 29:
-      arg00 = QWebPage::MoveToEndOfDocument;
-      break;
-    case 30:
-      arg00 = QWebPage::SelectNextChar;
-      break;
-    case 31:
-      arg00 = QWebPage::SelectPreviousChar;
-      break;
-    case 32:
-      arg00 = QWebPage::SelectNextWord;
-      break;
-    case 33:
-      arg00 = QWebPage::SelectPreviousWord;
-      break;
-    case 34:
-      arg00 = QWebPage::SelectNextLine;
-      break;
-    case 35:
-      arg00 = QWebPage::SelectPreviousLine;
-      break;
-    case 36:
-      arg00 = QWebPage::SelectStartOfLine;
-      break;
-    case 37:
-      arg00 = QWebPage::SelectEndOfLine;
-      break;
-    case 38:
-      arg00 = QWebPage::SelectStartOfBlock;
-      break;
-    case 39:
-      arg00 = QWebPage::SelectEndOfBlock;
-      break;
-    case 40:
-      arg00 = QWebPage::SelectStartOfDocument;
-      break;
-    case 41:
-      arg00 = QWebPage::SelectEndOfDocument;
-      break;
-    case 42:
-      arg00 = QWebPage::DeleteStartOfWord;
-      break;
-    case 43:
-      arg00 = QWebPage::DeleteEndOfWord;
-      break;
-    case 44:
-      arg00 = QWebPage::SetTextDirectionDefault;
-      break;
-    case 45:
-      arg00 = QWebPage::SetTextDirectionLeftToRight;
-      break;
-    case 46:
-      arg00 = QWebPage::SetTextDirectionRightToLeft;
-      break;
-    case 47:
-      arg00 = QWebPage::ToggleBold;
-      break;
-    case 48:
-      arg00 = QWebPage::ToggleItalic;
-      break;
-    case 49:
-      arg00 = QWebPage::ToggleUnderline;
-      break;
-    case 50:
-      arg00 = QWebPage::InspectElement;
-      break;
-    case 51:
-      arg00 = QWebPage::InsertParagraphSeparator;
-      break;
-    case 52:
-      arg00 = QWebPage::InsertLineSeparator;
-      break;
-    case 53:
-      arg00 = QWebPage::SelectAll;
-      break;
-    case 54:
-      arg00 = QWebPage::ReloadAndBypassCache;
-      break;
-    case 55:
-      arg00 = QWebPage::PasteAndMatchStyle;
-      break;
-    case 56:
-      arg00 = QWebPage::RemoveFormat;
-      break;
-    case 57:
-      arg00 = QWebPage::ToggleStrikethrough;
-      break;
-    case 58:
-      arg00 = QWebPage::ToggleSubscript;
-      break;
-    case 59:
-      arg00 = QWebPage::ToggleSuperscript;
-      break;
-    case 60:
-      arg00 = QWebPage::InsertUnorderedList;
-      break;
-    case 61:
-      arg00 = QWebPage::InsertOrderedList;
-      break;
-    case 62:
-      arg00 = QWebPage::Indent;
-      break;
-    case 63:
-      arg00 = QWebPage::Outdent;
-      break;
-    case 64:
-      arg00 = QWebPage::AlignCenter;
-      break;
-    case 65:
-      arg00 = QWebPage::AlignJustified;
-      break;
-    case 66:
-      arg00 = QWebPage::AlignLeft;
-      break;
-    case 67:
-      arg00 = QWebPage::AlignRight;
-      break;
-    case 68:
-      arg00 = QWebPage::WebActionCount;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QWebPage::WebAction passed in");
-    }
+    if (SvIOK(ST(1))) {
+      arg00 = (QWebPage::WebAction)SvIV(ST(1));
     QAction * ret = THIS->action(arg00);
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)ret);
+    sv_setref_pv(ST(0), "Qt::Gui::QAction", (void *)ret);
     XSRETURN(1);
+    }
 
 ## quint64 bytesReceived()
 void
 QWebPage::bytesReceived(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     quint64 ret = THIS->bytesReceived();
     ST(0) = sv_newmortal();
     sv_setuv(ST(0), (UV)ret);
     XSRETURN(1);
+    }
 
 ## QMenu * createStandardContextMenu()
 void
 QWebPage::createStandardContextMenu(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QMenu * ret = THIS->createStandardContextMenu();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)ret);
+    sv_setref_pv(ST(0), "Qt::Gui::QMenu", (void *)ret);
     XSRETURN(1);
+    }
 
 ## QWebFrame * currentFrame()
 void
 QWebPage::currentFrame(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QWebFrame * ret = THIS->currentFrame();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebFrame", (void *)ret);
     XSRETURN(1);
+    }
 
-## bool event(QEvent * arg0)
+## bool event()
 void
 QWebPage::event(...)
 PREINIT:
 QEvent * arg00;
 PPCODE:
-    if (sv_derived_from(ST(1), "")) {
+    if ((sv_derived_from(ST(1), "Qt::Core::QEvent") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Core::QEvent")) {
         arg00 = reinterpret_cast<QEvent *>(SvIV((SV*)SvRV(ST(1))));
     }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
+    }
     else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+        Perl_croak(aTHX_ "arg00 is not of type Qt::Core::QEvent");
     bool ret = THIS->event(arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
-## bool focusNextPrevChild(bool next)
+## bool findText(, )
+## bool findText(,  = 0)
+void
+QWebPage::findText(...)
+PREINIT:
+QString * arg00;
+QFlags<QWebPage::FindFlag> arg01;
+QString * arg10;
+QFlags<QWebPage::FindFlag> arg11 = 0;
+PPCODE:
+    switch(items) {
+      case 2:
+      {
+        if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+    bool ret = THIS->findText(*arg10, arg11);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      case 3:
+      {
+        if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2))) {
+      arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+      arg01 = QFlags<QWebPage::FindFlag>((int)SvIV(ST(2)));
+    bool ret = THIS->findText(*arg00, arg01);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
+        Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+    }
+
+## bool focusNextPrevChild()
 void
 QWebPage::focusNextPrevChild(...)
 PREINIT:
 bool arg00;
 PPCODE:
-    arg00 = (bool)SvTRUE(ST(1));
+    if (1) {
+      arg00 = (bool)SvTRUE(ST(1));
     bool ret = THIS->focusNextPrevChild(arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## bool forwardUnsupportedContent()
 void
 QWebPage::forwardUnsupportedContent(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     bool ret = THIS->forwardUnsupportedContent();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
-## QWebFrame * frameAt(const QPoint & pos)
+## QWebFrame * frameAt()
 void
 QWebPage::frameAt(...)
 PREINIT:
 QPoint * arg00;
 PPCODE:
-    if (sv_isa(ST(1), "")) {
-        arg00 = reinterpret_cast<QPoint *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+    if (sv_isa(ST(1), "Qt::Core::QPoint")) {
+      arg00 = reinterpret_cast<QPoint *>(SvIV((SV*)SvRV(ST(1))));
     QWebFrame * ret = THIS->frameAt(*arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebFrame", (void *)ret);
     XSRETURN(1);
+    }
 
 ## QWebHistory * history()
 void
 QWebPage::history(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QWebHistory * ret = THIS->history();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebHistory", (void *)ret);
     XSRETURN(1);
+    }
 
-## QVariant inputMethodQuery(Qt::InputMethodQuery property)
+## QVariant inputMethodQuery()
 void
 QWebPage::inputMethodQuery(...)
 PREINIT:
 Qt::InputMethodQuery arg00;
 PPCODE:
-    switch(SvIV(ST(1))) {
-    case 0:
-      arg00 = Qt::ImMicroFocus;
-      break;
-    case 1:
-      arg00 = Qt::ImFont;
-      break;
-    case 2:
-      arg00 = Qt::ImCursorPosition;
-      break;
-    case 3:
-      arg00 = Qt::ImSurroundingText;
-      break;
-    case 4:
-      arg00 = Qt::ImCurrentSelection;
-      break;
-    case 5:
-      arg00 = Qt::ImMaximumTextLength;
-      break;
-    case 6:
-      arg00 = Qt::ImAnchorPosition;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type Qt::InputMethodQuery passed in");
-    }
+    if (SvIOK(ST(1))) {
+      arg00 = (Qt::InputMethodQuery)SvIV(ST(1));
     QVariant ret = THIS->inputMethodQuery(arg00);
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QVariant(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QVariant", (void *)new QVariant(ret));
     XSRETURN(1);
+    }
 
 ## bool isContentEditable()
 void
 QWebPage::isContentEditable(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     bool ret = THIS->isContentEditable();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## bool isModified()
 void
 QWebPage::isModified(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     bool ret = THIS->isModified();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## QWebPage::LinkDelegationPolicy linkDelegationPolicy()
 void
 QWebPage::linkDelegationPolicy(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QWebPage::LinkDelegationPolicy ret = THIS->linkDelegationPolicy();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
 
 ## QWebFrame * mainFrame()
 void
 QWebPage::mainFrame(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QWebFrame * ret = THIS->mainFrame();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebFrame", (void *)ret);
     XSRETURN(1);
+    }
 
 ## QNetworkAccessManager * networkAccessManager()
 void
 QWebPage::networkAccessManager(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QNetworkAccessManager * ret = THIS->networkAccessManager();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)ret);
+    sv_setref_pv(ST(0), "Qt::Network::QNetworkAccessManager", (void *)ret);
     XSRETURN(1);
+    }
 
 ## QPalette palette()
 void
 QWebPage::palette(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QPalette ret = THIS->palette();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QPalette(ret));
+    sv_setref_pv(ST(0), "Qt::Gui::QPalette", (void *)new QPalette(ret));
     XSRETURN(1);
+    }
 
 ## QWebPluginFactory * pluginFactory()
 void
 QWebPage::pluginFactory(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QWebPluginFactory * ret = THIS->pluginFactory();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebPluginFactory", (void *)ret);
     XSRETURN(1);
+    }
 
 ## QSize preferredContentsSize()
 void
 QWebPage::preferredContentsSize(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSize ret = THIS->preferredContentsSize();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QSize(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QSize", (void *)new QSize(ret));
     XSRETURN(1);
+    }
 
 ## QString selectedText()
 void
 QWebPage::selectedText(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QString ret = THIS->selectedText();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QString(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QString", (void *)new QString(ret));
     XSRETURN(1);
+    }
 
-## void setContentEditable(bool editable)
+## void setContentEditable()
 void
 QWebPage::setContentEditable(...)
 PREINIT:
 bool arg00;
 PPCODE:
-    arg00 = (bool)SvTRUE(ST(1));
+    if (1) {
+      arg00 = (bool)SvTRUE(ST(1));
     (void)THIS->setContentEditable(arg00);
     XSRETURN(0);
+    }
 
-## void setForwardUnsupportedContent(bool forward)
+## void setForwardUnsupportedContent()
 void
 QWebPage::setForwardUnsupportedContent(...)
 PREINIT:
 bool arg00;
 PPCODE:
-    arg00 = (bool)SvTRUE(ST(1));
+    if (1) {
+      arg00 = (bool)SvTRUE(ST(1));
     (void)THIS->setForwardUnsupportedContent(arg00);
     XSRETURN(0);
+    }
 
-## void setLinkDelegationPolicy(QWebPage::LinkDelegationPolicy policy)
+## void setLinkDelegationPolicy()
 void
 QWebPage::setLinkDelegationPolicy(...)
 PREINIT:
 QWebPage::LinkDelegationPolicy arg00;
 PPCODE:
-    switch(SvIV(ST(1))) {
-    case 0:
-      arg00 = QWebPage::DontDelegateLinks;
-      break;
-    case 1:
-      arg00 = QWebPage::DelegateExternalLinks;
-      break;
-    case 2:
-      arg00 = QWebPage::DelegateAllLinks;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QWebPage::LinkDelegationPolicy passed in");
-    }
+    if (SvIOK(ST(1))) {
+      arg00 = (QWebPage::LinkDelegationPolicy)SvIV(ST(1));
     (void)THIS->setLinkDelegationPolicy(arg00);
     XSRETURN(0);
+    }
 
-## void setNetworkAccessManager(QNetworkAccessManager * manager)
+## void setNetworkAccessManager()
 void
 QWebPage::setNetworkAccessManager(...)
 PREINIT:
 QNetworkAccessManager * arg00;
 PPCODE:
-    if (sv_derived_from(ST(1), "")) {
+    if ((sv_derived_from(ST(1), "Qt::Network::QNetworkAccessManager") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Network::QNetworkAccessManager")) {
         arg00 = reinterpret_cast<QNetworkAccessManager *>(SvIV((SV*)SvRV(ST(1))));
     }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
+    }
     else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+        Perl_croak(aTHX_ "arg00 is not of type Qt::Network::QNetworkAccessManager");
     (void)THIS->setNetworkAccessManager(arg00);
     XSRETURN(0);
+    }
 
-## void setPalette(const QPalette & palette)
+## void setPalette()
 void
 QWebPage::setPalette(...)
 PREINIT:
 QPalette * arg00;
 PPCODE:
-    if (sv_isa(ST(1), "")) {
-        arg00 = reinterpret_cast<QPalette *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+    if (sv_isa(ST(1), "Qt::Gui::QPalette")) {
+      arg00 = reinterpret_cast<QPalette *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setPalette(*arg00);
     XSRETURN(0);
+    }
 
-## void setPluginFactory(QWebPluginFactory * factory)
+## void setPluginFactory()
 void
 QWebPage::setPluginFactory(...)
 PREINIT:
 QWebPluginFactory * arg00;
 PPCODE:
-    if (sv_derived_from(ST(1), "Qt::WebKit::QWebPluginFactory")) {
+    if ((sv_derived_from(ST(1), "Qt::WebKit::QWebPluginFactory") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::WebKit::QWebPluginFactory")) {
         arg00 = reinterpret_cast<QWebPluginFactory *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
     }
     else
         Perl_croak(aTHX_ "arg00 is not of type Qt::WebKit::QWebPluginFactory");
     (void)THIS->setPluginFactory(arg00);
     XSRETURN(0);
+    }
 
-## void setPreferredContentsSize(const QSize & size)
+## void setPreferredContentsSize()
 void
 QWebPage::setPreferredContentsSize(...)
 PREINIT:
 QSize * arg00;
 PPCODE:
-    if (sv_isa(ST(1), "")) {
-        arg00 = reinterpret_cast<QSize *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+    if (sv_isa(ST(1), "Qt::Core::QSize")) {
+      arg00 = reinterpret_cast<QSize *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setPreferredContentsSize(*arg00);
     XSRETURN(0);
+    }
 
-## void setView(QWidget * view)
+## void setView()
 void
 QWebPage::setView(...)
 PREINIT:
 QWidget * arg00;
 PPCODE:
-    if (sv_derived_from(ST(1), "")) {
+    if ((sv_derived_from(ST(1), "Qt::Gui::QWidget") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Gui::QWidget")) {
         arg00 = reinterpret_cast<QWidget *>(SvIV((SV*)SvRV(ST(1))));
     }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
+    }
     else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+        Perl_croak(aTHX_ "arg00 is not of type Qt::Gui::QWidget");
     (void)THIS->setView(arg00);
     XSRETURN(0);
+    }
 
-## void setViewportSize(const QSize & size)
+## void setViewportSize()
 void
 QWebPage::setViewportSize(...)
 PREINIT:
 QSize * arg00;
 PPCODE:
-    if (sv_isa(ST(1), "")) {
-        arg00 = reinterpret_cast<QSize *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+    if (sv_isa(ST(1), "Qt::Core::QSize")) {
+      arg00 = reinterpret_cast<QSize *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setViewportSize(*arg00);
     XSRETURN(0);
+    }
 
 ## QWebSettings * settings()
 void
 QWebPage::settings(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QWebSettings * ret = THIS->settings();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebSettings", (void *)ret);
     XSRETURN(1);
+    }
 
 ## bool shouldInterruptJavaScript()
 void
 QWebPage::shouldInterruptJavaScript(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     bool ret = THIS->shouldInterruptJavaScript();
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
-## bool swallowContextMenuEvent(QContextMenuEvent * event)
+## bool swallowContextMenuEvent()
 void
 QWebPage::swallowContextMenuEvent(...)
 PREINIT:
 QContextMenuEvent * arg00;
 PPCODE:
-    if (sv_derived_from(ST(1), "")) {
+    if ((sv_derived_from(ST(1), "Qt::Gui::QContextMenuEvent") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Gui::QContextMenuEvent")) {
         arg00 = reinterpret_cast<QContextMenuEvent *>(SvIV((SV*)SvRV(ST(1))));
     }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
+    }
     else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+        Perl_croak(aTHX_ "arg00 is not of type Qt::Gui::QContextMenuEvent");
     bool ret = THIS->swallowContextMenuEvent(arg00);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
 
 ## quint64 totalBytes()
 void
 QWebPage::totalBytes(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     quint64 ret = THIS->totalBytes();
     ST(0) = sv_newmortal();
     sv_setuv(ST(0), (UV)ret);
     XSRETURN(1);
+    }
 
-## void triggerAction(QWebPage::WebAction action, bool checked = false)
-## void triggerAction(QWebPage::WebAction action, bool checked)
+## void triggerAction(, )
+## void triggerAction(,  = false)
 void
 QWebPage::triggerAction(...)
 PREINIT:
 QWebPage::WebAction arg00;
-bool arg01 = false;
+bool arg01;
 QWebPage::WebAction arg10;
-bool arg11;
+bool arg11 = false;
 PPCODE:
     switch(items) {
-    case 2:
+      case 2:
       {
-        switch(SvIV(ST(1))) {
-    case 0:
-      arg00 = QWebPage::NoWebAction;
-      break;
-    case 1:
-      arg00 = QWebPage::OpenLink;
-      break;
-    case 2:
-      arg00 = QWebPage::OpenLinkInNewWindow;
-      break;
-    case 3:
-      arg00 = QWebPage::OpenFrameInNewWindow;
-      break;
-    case 4:
-      arg00 = QWebPage::DownloadLinkToDisk;
-      break;
-    case 5:
-      arg00 = QWebPage::CopyLinkToClipboard;
-      break;
-    case 6:
-      arg00 = QWebPage::OpenImageInNewWindow;
-      break;
-    case 7:
-      arg00 = QWebPage::DownloadImageToDisk;
-      break;
-    case 8:
-      arg00 = QWebPage::CopyImageToClipboard;
-      break;
-    case 9:
-      arg00 = QWebPage::Back;
-      break;
-    case 10:
-      arg00 = QWebPage::Forward;
-      break;
-    case 11:
-      arg00 = QWebPage::Stop;
-      break;
-    case 12:
-      arg00 = QWebPage::Reload;
-      break;
-    case 13:
-      arg00 = QWebPage::Cut;
-      break;
-    case 14:
-      arg00 = QWebPage::Copy;
-      break;
-    case 15:
-      arg00 = QWebPage::Paste;
-      break;
-    case 16:
-      arg00 = QWebPage::Undo;
-      break;
-    case 17:
-      arg00 = QWebPage::Redo;
-      break;
-    case 18:
-      arg00 = QWebPage::MoveToNextChar;
-      break;
-    case 19:
-      arg00 = QWebPage::MoveToPreviousChar;
-      break;
-    case 20:
-      arg00 = QWebPage::MoveToNextWord;
-      break;
-    case 21:
-      arg00 = QWebPage::MoveToPreviousWord;
-      break;
-    case 22:
-      arg00 = QWebPage::MoveToNextLine;
-      break;
-    case 23:
-      arg00 = QWebPage::MoveToPreviousLine;
-      break;
-    case 24:
-      arg00 = QWebPage::MoveToStartOfLine;
-      break;
-    case 25:
-      arg00 = QWebPage::MoveToEndOfLine;
-      break;
-    case 26:
-      arg00 = QWebPage::MoveToStartOfBlock;
-      break;
-    case 27:
-      arg00 = QWebPage::MoveToEndOfBlock;
-      break;
-    case 28:
-      arg00 = QWebPage::MoveToStartOfDocument;
-      break;
-    case 29:
-      arg00 = QWebPage::MoveToEndOfDocument;
-      break;
-    case 30:
-      arg00 = QWebPage::SelectNextChar;
-      break;
-    case 31:
-      arg00 = QWebPage::SelectPreviousChar;
-      break;
-    case 32:
-      arg00 = QWebPage::SelectNextWord;
-      break;
-    case 33:
-      arg00 = QWebPage::SelectPreviousWord;
-      break;
-    case 34:
-      arg00 = QWebPage::SelectNextLine;
-      break;
-    case 35:
-      arg00 = QWebPage::SelectPreviousLine;
-      break;
-    case 36:
-      arg00 = QWebPage::SelectStartOfLine;
-      break;
-    case 37:
-      arg00 = QWebPage::SelectEndOfLine;
-      break;
-    case 38:
-      arg00 = QWebPage::SelectStartOfBlock;
-      break;
-    case 39:
-      arg00 = QWebPage::SelectEndOfBlock;
-      break;
-    case 40:
-      arg00 = QWebPage::SelectStartOfDocument;
-      break;
-    case 41:
-      arg00 = QWebPage::SelectEndOfDocument;
-      break;
-    case 42:
-      arg00 = QWebPage::DeleteStartOfWord;
-      break;
-    case 43:
-      arg00 = QWebPage::DeleteEndOfWord;
-      break;
-    case 44:
-      arg00 = QWebPage::SetTextDirectionDefault;
-      break;
-    case 45:
-      arg00 = QWebPage::SetTextDirectionLeftToRight;
-      break;
-    case 46:
-      arg00 = QWebPage::SetTextDirectionRightToLeft;
-      break;
-    case 47:
-      arg00 = QWebPage::ToggleBold;
-      break;
-    case 48:
-      arg00 = QWebPage::ToggleItalic;
-      break;
-    case 49:
-      arg00 = QWebPage::ToggleUnderline;
-      break;
-    case 50:
-      arg00 = QWebPage::InspectElement;
-      break;
-    case 51:
-      arg00 = QWebPage::InsertParagraphSeparator;
-      break;
-    case 52:
-      arg00 = QWebPage::InsertLineSeparator;
-      break;
-    case 53:
-      arg00 = QWebPage::SelectAll;
-      break;
-    case 54:
-      arg00 = QWebPage::ReloadAndBypassCache;
-      break;
-    case 55:
-      arg00 = QWebPage::PasteAndMatchStyle;
-      break;
-    case 56:
-      arg00 = QWebPage::RemoveFormat;
-      break;
-    case 57:
-      arg00 = QWebPage::ToggleStrikethrough;
-      break;
-    case 58:
-      arg00 = QWebPage::ToggleSubscript;
-      break;
-    case 59:
-      arg00 = QWebPage::ToggleSuperscript;
-      break;
-    case 60:
-      arg00 = QWebPage::InsertUnorderedList;
-      break;
-    case 61:
-      arg00 = QWebPage::InsertOrderedList;
-      break;
-    case 62:
-      arg00 = QWebPage::Indent;
-      break;
-    case 63:
-      arg00 = QWebPage::Outdent;
-      break;
-    case 64:
-      arg00 = QWebPage::AlignCenter;
-      break;
-    case 65:
-      arg00 = QWebPage::AlignJustified;
-      break;
-    case 66:
-      arg00 = QWebPage::AlignLeft;
-      break;
-    case 67:
-      arg00 = QWebPage::AlignRight;
-      break;
-    case 68:
-      arg00 = QWebPage::WebActionCount;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QWebPage::WebAction passed in");
-    }
-    (void)THIS->triggerAction(arg00, arg01);
-    XSRETURN(0);
-        break;
-      }
-    case 3:
-      {
-        switch(SvIV(ST(1))) {
-    case 0:
-      arg10 = QWebPage::NoWebAction;
-      break;
-    case 1:
-      arg10 = QWebPage::OpenLink;
-      break;
-    case 2:
-      arg10 = QWebPage::OpenLinkInNewWindow;
-      break;
-    case 3:
-      arg10 = QWebPage::OpenFrameInNewWindow;
-      break;
-    case 4:
-      arg10 = QWebPage::DownloadLinkToDisk;
-      break;
-    case 5:
-      arg10 = QWebPage::CopyLinkToClipboard;
-      break;
-    case 6:
-      arg10 = QWebPage::OpenImageInNewWindow;
-      break;
-    case 7:
-      arg10 = QWebPage::DownloadImageToDisk;
-      break;
-    case 8:
-      arg10 = QWebPage::CopyImageToClipboard;
-      break;
-    case 9:
-      arg10 = QWebPage::Back;
-      break;
-    case 10:
-      arg10 = QWebPage::Forward;
-      break;
-    case 11:
-      arg10 = QWebPage::Stop;
-      break;
-    case 12:
-      arg10 = QWebPage::Reload;
-      break;
-    case 13:
-      arg10 = QWebPage::Cut;
-      break;
-    case 14:
-      arg10 = QWebPage::Copy;
-      break;
-    case 15:
-      arg10 = QWebPage::Paste;
-      break;
-    case 16:
-      arg10 = QWebPage::Undo;
-      break;
-    case 17:
-      arg10 = QWebPage::Redo;
-      break;
-    case 18:
-      arg10 = QWebPage::MoveToNextChar;
-      break;
-    case 19:
-      arg10 = QWebPage::MoveToPreviousChar;
-      break;
-    case 20:
-      arg10 = QWebPage::MoveToNextWord;
-      break;
-    case 21:
-      arg10 = QWebPage::MoveToPreviousWord;
-      break;
-    case 22:
-      arg10 = QWebPage::MoveToNextLine;
-      break;
-    case 23:
-      arg10 = QWebPage::MoveToPreviousLine;
-      break;
-    case 24:
-      arg10 = QWebPage::MoveToStartOfLine;
-      break;
-    case 25:
-      arg10 = QWebPage::MoveToEndOfLine;
-      break;
-    case 26:
-      arg10 = QWebPage::MoveToStartOfBlock;
-      break;
-    case 27:
-      arg10 = QWebPage::MoveToEndOfBlock;
-      break;
-    case 28:
-      arg10 = QWebPage::MoveToStartOfDocument;
-      break;
-    case 29:
-      arg10 = QWebPage::MoveToEndOfDocument;
-      break;
-    case 30:
-      arg10 = QWebPage::SelectNextChar;
-      break;
-    case 31:
-      arg10 = QWebPage::SelectPreviousChar;
-      break;
-    case 32:
-      arg10 = QWebPage::SelectNextWord;
-      break;
-    case 33:
-      arg10 = QWebPage::SelectPreviousWord;
-      break;
-    case 34:
-      arg10 = QWebPage::SelectNextLine;
-      break;
-    case 35:
-      arg10 = QWebPage::SelectPreviousLine;
-      break;
-    case 36:
-      arg10 = QWebPage::SelectStartOfLine;
-      break;
-    case 37:
-      arg10 = QWebPage::SelectEndOfLine;
-      break;
-    case 38:
-      arg10 = QWebPage::SelectStartOfBlock;
-      break;
-    case 39:
-      arg10 = QWebPage::SelectEndOfBlock;
-      break;
-    case 40:
-      arg10 = QWebPage::SelectStartOfDocument;
-      break;
-    case 41:
-      arg10 = QWebPage::SelectEndOfDocument;
-      break;
-    case 42:
-      arg10 = QWebPage::DeleteStartOfWord;
-      break;
-    case 43:
-      arg10 = QWebPage::DeleteEndOfWord;
-      break;
-    case 44:
-      arg10 = QWebPage::SetTextDirectionDefault;
-      break;
-    case 45:
-      arg10 = QWebPage::SetTextDirectionLeftToRight;
-      break;
-    case 46:
-      arg10 = QWebPage::SetTextDirectionRightToLeft;
-      break;
-    case 47:
-      arg10 = QWebPage::ToggleBold;
-      break;
-    case 48:
-      arg10 = QWebPage::ToggleItalic;
-      break;
-    case 49:
-      arg10 = QWebPage::ToggleUnderline;
-      break;
-    case 50:
-      arg10 = QWebPage::InspectElement;
-      break;
-    case 51:
-      arg10 = QWebPage::InsertParagraphSeparator;
-      break;
-    case 52:
-      arg10 = QWebPage::InsertLineSeparator;
-      break;
-    case 53:
-      arg10 = QWebPage::SelectAll;
-      break;
-    case 54:
-      arg10 = QWebPage::ReloadAndBypassCache;
-      break;
-    case 55:
-      arg10 = QWebPage::PasteAndMatchStyle;
-      break;
-    case 56:
-      arg10 = QWebPage::RemoveFormat;
-      break;
-    case 57:
-      arg10 = QWebPage::ToggleStrikethrough;
-      break;
-    case 58:
-      arg10 = QWebPage::ToggleSubscript;
-      break;
-    case 59:
-      arg10 = QWebPage::ToggleSuperscript;
-      break;
-    case 60:
-      arg10 = QWebPage::InsertUnorderedList;
-      break;
-    case 61:
-      arg10 = QWebPage::InsertOrderedList;
-      break;
-    case 62:
-      arg10 = QWebPage::Indent;
-      break;
-    case 63:
-      arg10 = QWebPage::Outdent;
-      break;
-    case 64:
-      arg10 = QWebPage::AlignCenter;
-      break;
-    case 65:
-      arg10 = QWebPage::AlignJustified;
-      break;
-    case 66:
-      arg10 = QWebPage::AlignLeft;
-      break;
-    case 67:
-      arg10 = QWebPage::AlignRight;
-      break;
-    case 68:
-      arg10 = QWebPage::WebActionCount;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type QWebPage::WebAction passed in");
-    }
-    arg11 = (bool)SvTRUE(ST(2));
+        if (SvIOK(ST(1))) {
+      arg10 = (QWebPage::WebAction)SvIV(ST(1));
     (void)THIS->triggerAction(arg10, arg11);
     XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 3:
       {
+        if (SvIOK(ST(1)) && 1) {
+      arg00 = (QWebPage::WebAction)SvIV(ST(1));
+      arg01 = (bool)SvTRUE(ST(2));
+    (void)THIS->triggerAction(arg00, arg01);
+    XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ## QUndoStack * undoStack()
@@ -1135,41 +606,865 @@ void
 QWebPage::undoStack(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QUndoStack * ret = THIS->undoStack();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)ret);
+    sv_setref_pv(ST(0), "Qt::Gui::QUndoStack", (void *)ret);
     XSRETURN(1);
+    }
 
-## void updatePositionDependentActions(const QPoint & pos)
+## void updatePositionDependentActions()
 void
 QWebPage::updatePositionDependentActions(...)
 PREINIT:
 QPoint * arg00;
 PPCODE:
-    if (sv_isa(ST(1), "")) {
-        arg00 = reinterpret_cast<QPoint *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type ");
+    if (sv_isa(ST(1), "Qt::Core::QPoint")) {
+      arg00 = reinterpret_cast<QPoint *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->updatePositionDependentActions(*arg00);
     XSRETURN(0);
+    }
 
 ## QWidget * view()
 void
 QWebPage::view(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QWidget * ret = THIS->view();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)ret);
+    sv_setref_pv(ST(0), "Qt::Gui::QWidget", (void *)ret);
     XSRETURN(1);
+    }
 
 ## QSize viewportSize()
 void
 QWebPage::viewportSize(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSize ret = THIS->viewportSize();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QSize(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QSize", (void *)new QSize(ret));
+    XSRETURN(1);
+    }
+
+
+
+
+################################################################
+#### 
+#### ENUMS
+#### 
+################################################################
+# NavigationType::NavigationTypeLinkClicked
+void
+NavigationTypeLinkClicked()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::NavigationTypeLinkClicked);
+    XSRETURN(1);
+
+
+# NavigationType::NavigationTypeFormSubmitted
+void
+NavigationTypeFormSubmitted()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::NavigationTypeFormSubmitted);
+    XSRETURN(1);
+
+
+# NavigationType::NavigationTypeBackOrForward
+void
+NavigationTypeBackOrForward()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::NavigationTypeBackOrForward);
+    XSRETURN(1);
+
+
+# NavigationType::NavigationTypeReload
+void
+NavigationTypeReload()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::NavigationTypeReload);
+    XSRETURN(1);
+
+
+# NavigationType::NavigationTypeFormResubmitted
+void
+NavigationTypeFormResubmitted()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::NavigationTypeFormResubmitted);
+    XSRETURN(1);
+
+
+# NavigationType::NavigationTypeOther
+void
+NavigationTypeOther()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::NavigationTypeOther);
+    XSRETURN(1);
+
+
+# WebAction::NoWebAction
+void
+NoWebAction()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::NoWebAction);
+    XSRETURN(1);
+
+
+# WebAction::OpenLink
+void
+OpenLink()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::OpenLink);
+    XSRETURN(1);
+
+
+# WebAction::OpenLinkInNewWindow
+void
+OpenLinkInNewWindow()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::OpenLinkInNewWindow);
+    XSRETURN(1);
+
+
+# WebAction::OpenFrameInNewWindow
+void
+OpenFrameInNewWindow()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::OpenFrameInNewWindow);
+    XSRETURN(1);
+
+
+# WebAction::DownloadLinkToDisk
+void
+DownloadLinkToDisk()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::DownloadLinkToDisk);
+    XSRETURN(1);
+
+
+# WebAction::CopyLinkToClipboard
+void
+CopyLinkToClipboard()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::CopyLinkToClipboard);
+    XSRETURN(1);
+
+
+# WebAction::OpenImageInNewWindow
+void
+OpenImageInNewWindow()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::OpenImageInNewWindow);
+    XSRETURN(1);
+
+
+# WebAction::DownloadImageToDisk
+void
+DownloadImageToDisk()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::DownloadImageToDisk);
+    XSRETURN(1);
+
+
+# WebAction::CopyImageToClipboard
+void
+CopyImageToClipboard()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::CopyImageToClipboard);
+    XSRETURN(1);
+
+
+# WebAction::Back
+void
+Back()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Back);
+    XSRETURN(1);
+
+
+# WebAction::Forward
+void
+Forward()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Forward);
+    XSRETURN(1);
+
+
+# WebAction::Stop
+void
+Stop()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Stop);
+    XSRETURN(1);
+
+
+# WebAction::Reload
+void
+Reload()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Reload);
+    XSRETURN(1);
+
+
+# WebAction::Cut
+void
+Cut()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Cut);
+    XSRETURN(1);
+
+
+# WebAction::Copy
+void
+Copy()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Copy);
+    XSRETURN(1);
+
+
+# WebAction::Paste
+void
+Paste()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Paste);
+    XSRETURN(1);
+
+
+# WebAction::Undo
+void
+Undo()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Undo);
+    XSRETURN(1);
+
+
+# WebAction::Redo
+void
+Redo()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Redo);
+    XSRETURN(1);
+
+
+# WebAction::MoveToNextChar
+void
+MoveToNextChar()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToNextChar);
+    XSRETURN(1);
+
+
+# WebAction::MoveToPreviousChar
+void
+MoveToPreviousChar()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToPreviousChar);
+    XSRETURN(1);
+
+
+# WebAction::MoveToNextWord
+void
+MoveToNextWord()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToNextWord);
+    XSRETURN(1);
+
+
+# WebAction::MoveToPreviousWord
+void
+MoveToPreviousWord()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToPreviousWord);
+    XSRETURN(1);
+
+
+# WebAction::MoveToNextLine
+void
+MoveToNextLine()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToNextLine);
+    XSRETURN(1);
+
+
+# WebAction::MoveToPreviousLine
+void
+MoveToPreviousLine()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToPreviousLine);
+    XSRETURN(1);
+
+
+# WebAction::MoveToStartOfLine
+void
+MoveToStartOfLine()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToStartOfLine);
+    XSRETURN(1);
+
+
+# WebAction::MoveToEndOfLine
+void
+MoveToEndOfLine()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToEndOfLine);
+    XSRETURN(1);
+
+
+# WebAction::MoveToStartOfBlock
+void
+MoveToStartOfBlock()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToStartOfBlock);
+    XSRETURN(1);
+
+
+# WebAction::MoveToEndOfBlock
+void
+MoveToEndOfBlock()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToEndOfBlock);
+    XSRETURN(1);
+
+
+# WebAction::MoveToStartOfDocument
+void
+MoveToStartOfDocument()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToStartOfDocument);
+    XSRETURN(1);
+
+
+# WebAction::MoveToEndOfDocument
+void
+MoveToEndOfDocument()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::MoveToEndOfDocument);
+    XSRETURN(1);
+
+
+# WebAction::SelectNextChar
+void
+SelectNextChar()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectNextChar);
+    XSRETURN(1);
+
+
+# WebAction::SelectPreviousChar
+void
+SelectPreviousChar()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectPreviousChar);
+    XSRETURN(1);
+
+
+# WebAction::SelectNextWord
+void
+SelectNextWord()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectNextWord);
+    XSRETURN(1);
+
+
+# WebAction::SelectPreviousWord
+void
+SelectPreviousWord()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectPreviousWord);
+    XSRETURN(1);
+
+
+# WebAction::SelectNextLine
+void
+SelectNextLine()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectNextLine);
+    XSRETURN(1);
+
+
+# WebAction::SelectPreviousLine
+void
+SelectPreviousLine()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectPreviousLine);
+    XSRETURN(1);
+
+
+# WebAction::SelectStartOfLine
+void
+SelectStartOfLine()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectStartOfLine);
+    XSRETURN(1);
+
+
+# WebAction::SelectEndOfLine
+void
+SelectEndOfLine()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectEndOfLine);
+    XSRETURN(1);
+
+
+# WebAction::SelectStartOfBlock
+void
+SelectStartOfBlock()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectStartOfBlock);
+    XSRETURN(1);
+
+
+# WebAction::SelectEndOfBlock
+void
+SelectEndOfBlock()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectEndOfBlock);
+    XSRETURN(1);
+
+
+# WebAction::SelectStartOfDocument
+void
+SelectStartOfDocument()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectStartOfDocument);
+    XSRETURN(1);
+
+
+# WebAction::SelectEndOfDocument
+void
+SelectEndOfDocument()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectEndOfDocument);
+    XSRETURN(1);
+
+
+# WebAction::DeleteStartOfWord
+void
+DeleteStartOfWord()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::DeleteStartOfWord);
+    XSRETURN(1);
+
+
+# WebAction::DeleteEndOfWord
+void
+DeleteEndOfWord()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::DeleteEndOfWord);
+    XSRETURN(1);
+
+
+# WebAction::SetTextDirectionDefault
+void
+SetTextDirectionDefault()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SetTextDirectionDefault);
+    XSRETURN(1);
+
+
+# WebAction::SetTextDirectionLeftToRight
+void
+SetTextDirectionLeftToRight()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SetTextDirectionLeftToRight);
+    XSRETURN(1);
+
+
+# WebAction::SetTextDirectionRightToLeft
+void
+SetTextDirectionRightToLeft()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SetTextDirectionRightToLeft);
+    XSRETURN(1);
+
+
+# WebAction::ToggleBold
+void
+ToggleBold()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ToggleBold);
+    XSRETURN(1);
+
+
+# WebAction::ToggleItalic
+void
+ToggleItalic()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ToggleItalic);
+    XSRETURN(1);
+
+
+# WebAction::ToggleUnderline
+void
+ToggleUnderline()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ToggleUnderline);
+    XSRETURN(1);
+
+
+# WebAction::InspectElement
+void
+InspectElement()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::InspectElement);
+    XSRETURN(1);
+
+
+# WebAction::InsertParagraphSeparator
+void
+InsertParagraphSeparator()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::InsertParagraphSeparator);
+    XSRETURN(1);
+
+
+# WebAction::InsertLineSeparator
+void
+InsertLineSeparator()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::InsertLineSeparator);
+    XSRETURN(1);
+
+
+# WebAction::SelectAll
+void
+SelectAll()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::SelectAll);
+    XSRETURN(1);
+
+
+# WebAction::ReloadAndBypassCache
+void
+ReloadAndBypassCache()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ReloadAndBypassCache);
+    XSRETURN(1);
+
+
+# WebAction::PasteAndMatchStyle
+void
+PasteAndMatchStyle()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::PasteAndMatchStyle);
+    XSRETURN(1);
+
+
+# WebAction::RemoveFormat
+void
+RemoveFormat()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::RemoveFormat);
+    XSRETURN(1);
+
+
+# WebAction::ToggleStrikethrough
+void
+ToggleStrikethrough()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ToggleStrikethrough);
+    XSRETURN(1);
+
+
+# WebAction::ToggleSubscript
+void
+ToggleSubscript()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ToggleSubscript);
+    XSRETURN(1);
+
+
+# WebAction::ToggleSuperscript
+void
+ToggleSuperscript()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ToggleSuperscript);
+    XSRETURN(1);
+
+
+# WebAction::InsertUnorderedList
+void
+InsertUnorderedList()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::InsertUnorderedList);
+    XSRETURN(1);
+
+
+# WebAction::InsertOrderedList
+void
+InsertOrderedList()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::InsertOrderedList);
+    XSRETURN(1);
+
+
+# WebAction::Indent
+void
+Indent()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Indent);
+    XSRETURN(1);
+
+
+# WebAction::Outdent
+void
+Outdent()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Outdent);
+    XSRETURN(1);
+
+
+# WebAction::AlignCenter
+void
+AlignCenter()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::AlignCenter);
+    XSRETURN(1);
+
+
+# WebAction::AlignJustified
+void
+AlignJustified()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::AlignJustified);
+    XSRETURN(1);
+
+
+# WebAction::AlignLeft
+void
+AlignLeft()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::AlignLeft);
+    XSRETURN(1);
+
+
+# WebAction::AlignRight
+void
+AlignRight()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::AlignRight);
+    XSRETURN(1);
+
+
+# WebAction::StopScheduledPageRefresh
+void
+StopScheduledPageRefresh()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::StopScheduledPageRefresh);
+    XSRETURN(1);
+
+
+# WebAction::WebActionCount
+void
+WebActionCount()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::WebActionCount);
+    XSRETURN(1);
+
+
+# FindFlag::FindBackward
+void
+FindBackward()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::FindBackward);
+    XSRETURN(1);
+
+
+# FindFlag::FindCaseSensitively
+void
+FindCaseSensitively()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::FindCaseSensitively);
+    XSRETURN(1);
+
+
+# FindFlag::FindWrapsAroundDocument
+void
+FindWrapsAroundDocument()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::FindWrapsAroundDocument);
+    XSRETURN(1);
+
+
+# FindFlag::HighlightAllOccurrences
+void
+HighlightAllOccurrences()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::HighlightAllOccurrences);
+    XSRETURN(1);
+
+
+# LinkDelegationPolicy::DontDelegateLinks
+void
+DontDelegateLinks()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::DontDelegateLinks);
+    XSRETURN(1);
+
+
+# LinkDelegationPolicy::DelegateExternalLinks
+void
+DelegateExternalLinks()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::DelegateExternalLinks);
+    XSRETURN(1);
+
+
+# LinkDelegationPolicy::DelegateAllLinks
+void
+DelegateAllLinks()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::DelegateAllLinks);
+    XSRETURN(1);
+
+
+# WebWindowType::WebBrowserWindow
+void
+WebBrowserWindow()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::WebBrowserWindow);
+    XSRETURN(1);
+
+
+# WebWindowType::WebModalDialog
+void
+WebModalDialog()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::WebModalDialog);
+    XSRETURN(1);
+
+
+# Extension::ChooseMultipleFilesExtension
+void
+ChooseMultipleFilesExtension()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ChooseMultipleFilesExtension);
+    XSRETURN(1);
+
+
+# Extension::ErrorPageExtension
+void
+ErrorPageExtension()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::ErrorPageExtension);
+    XSRETURN(1);
+
+
+# ErrorDomain::QtNetwork
+void
+QtNetwork()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::QtNetwork);
+    XSRETURN(1);
+
+
+# ErrorDomain::Http
+void
+Http()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::Http);
+    XSRETURN(1);
+
+
+# ErrorDomain::WebKit
+void
+WebKit()
+PPCODE:
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)QWebPage::WebKit);
     XSRETURN(1);

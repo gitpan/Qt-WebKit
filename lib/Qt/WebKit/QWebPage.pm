@@ -7,102 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub NavigationTypeLinkClicked() { 0 }
-sub NavigationTypeFormSubmitted() { 1 }
-sub NavigationTypeBackOrForward() { 2 }
-sub NavigationTypeReload() { 3 }
-sub NavigationTypeFormResubmitted() { 4 }
-sub NavigationTypeOther() { 5 }
-sub NoWebAction() { 0 }
-sub OpenLink() { 1 }
-sub OpenLinkInNewWindow() { 2 }
-sub OpenFrameInNewWindow() { 3 }
-sub DownloadLinkToDisk() { 4 }
-sub CopyLinkToClipboard() { 5 }
-sub OpenImageInNewWindow() { 6 }
-sub DownloadImageToDisk() { 7 }
-sub CopyImageToClipboard() { 8 }
-sub Back() { 9 }
-sub Forward() { 10 }
-sub Stop() { 11 }
-sub Reload() { 12 }
-sub Cut() { 13 }
-sub Copy() { 14 }
-sub Paste() { 15 }
-sub Undo() { 16 }
-sub Redo() { 17 }
-sub MoveToNextChar() { 18 }
-sub MoveToPreviousChar() { 19 }
-sub MoveToNextWord() { 20 }
-sub MoveToPreviousWord() { 21 }
-sub MoveToNextLine() { 22 }
-sub MoveToPreviousLine() { 23 }
-sub MoveToStartOfLine() { 24 }
-sub MoveToEndOfLine() { 25 }
-sub MoveToStartOfBlock() { 26 }
-sub MoveToEndOfBlock() { 27 }
-sub MoveToStartOfDocument() { 28 }
-sub MoveToEndOfDocument() { 29 }
-sub SelectNextChar() { 30 }
-sub SelectPreviousChar() { 31 }
-sub SelectNextWord() { 32 }
-sub SelectPreviousWord() { 33 }
-sub SelectNextLine() { 34 }
-sub SelectPreviousLine() { 35 }
-sub SelectStartOfLine() { 36 }
-sub SelectEndOfLine() { 37 }
-sub SelectStartOfBlock() { 38 }
-sub SelectEndOfBlock() { 39 }
-sub SelectStartOfDocument() { 40 }
-sub SelectEndOfDocument() { 41 }
-sub DeleteStartOfWord() { 42 }
-sub DeleteEndOfWord() { 43 }
-sub SetTextDirectionDefault() { 44 }
-sub SetTextDirectionLeftToRight() { 45 }
-sub SetTextDirectionRightToLeft() { 46 }
-sub ToggleBold() { 47 }
-sub ToggleItalic() { 48 }
-sub ToggleUnderline() { 49 }
-sub InspectElement() { 50 }
-sub InsertParagraphSeparator() { 51 }
-sub InsertLineSeparator() { 52 }
-sub SelectAll() { 53 }
-sub ReloadAndBypassCache() { 54 }
-sub PasteAndMatchStyle() { 55 }
-sub RemoveFormat() { 56 }
-sub ToggleStrikethrough() { 57 }
-sub ToggleSubscript() { 58 }
-sub ToggleSuperscript() { 59 }
-sub InsertUnorderedList() { 60 }
-sub InsertOrderedList() { 61 }
-sub Indent() { 62 }
-sub Outdent() { 63 }
-sub AlignCenter() { 64 }
-sub AlignJustified() { 65 }
-sub AlignLeft() { 66 }
-sub AlignRight() { 67 }
-sub WebActionCount() { 68 }
-sub FindBackward() { 0 }
-sub FindCaseSensitively() { 1 }
-sub FindWrapsAroundDocument() { 2 }
-sub HighlightAllOccurrences() { 3 }
-sub DontDelegateLinks() { 0 }
-sub DelegateExternalLinks() { 1 }
-sub DelegateAllLinks() { 2 }
-sub WebBrowserWindow() { 0 }
-sub WebModalDialog() { 1 }
-sub ChooseMultipleFilesExtension() { 0 }
-sub ErrorPageExtension() { 1 }
-sub QtNetwork() { 0 }
-sub Http() { 1 }
-sub WebKit() { 2 }
 
 
 1;
@@ -115,87 +24,278 @@ Qt::WebKit::QWebPage
 
 =over
 
-=item    QWebPage(QObject * parent = 0)
+=item   QWebPage()
 
-=item    QWebPage(QObject * parent)
+=item   QWebPage( = 0)
 
-=item    ~QWebPage()
+=item   ~QWebPage()
 
-=item   QAction * action(QWebPage::WebAction action)
+=item  QAction * action()
 
-=item   quint64 bytesReceived()
+=item  quint64 bytesReceived()
 
-=item   QMenu * createStandardContextMenu()
+=item  QMenu * createStandardContextMenu()
 
-=item   QWebFrame * currentFrame()
+=item  QWebFrame * currentFrame()
 
-=item   bool event(QEvent * arg0)
+=item  bool event()
 
-=item   bool focusNextPrevChild(bool next)
+=item  bool findText(, )
 
-=item   bool forwardUnsupportedContent()
+=item  bool findText(,  = 0)
 
-=item   QWebFrame * frameAt(const QPoint & pos)
+=item  bool focusNextPrevChild()
 
-=item   QWebHistory * history()
+=item  bool forwardUnsupportedContent()
 
-=item   QVariant inputMethodQuery(Qt::InputMethodQuery property)
+=item  QWebFrame * frameAt()
 
-=item   bool isContentEditable()
+=item  QWebHistory * history()
 
-=item   bool isModified()
+=item  QVariant inputMethodQuery()
 
-=item   QWebPage::LinkDelegationPolicy linkDelegationPolicy()
+=item  bool isContentEditable()
 
-=item   QWebFrame * mainFrame()
+=item  bool isModified()
 
-=item   QNetworkAccessManager * networkAccessManager()
+=item  QWebPage::LinkDelegationPolicy linkDelegationPolicy()
 
-=item   QPalette palette()
+=item  QWebFrame * mainFrame()
 
-=item   QWebPluginFactory * pluginFactory()
+=item  QNetworkAccessManager * networkAccessManager()
 
-=item   QSize preferredContentsSize()
+=item  QPalette palette()
 
-=item   QString selectedText()
+=item  QWebPluginFactory * pluginFactory()
 
-=item   void setContentEditable(bool editable)
+=item  QSize preferredContentsSize()
 
-=item   void setForwardUnsupportedContent(bool forward)
+=item  QString selectedText()
 
-=item   void setLinkDelegationPolicy(QWebPage::LinkDelegationPolicy policy)
+=item  void setContentEditable()
 
-=item   void setNetworkAccessManager(QNetworkAccessManager * manager)
+=item  void setForwardUnsupportedContent()
 
-=item   void setPalette(const QPalette & palette)
+=item  void setLinkDelegationPolicy()
 
-=item   void setPluginFactory(QWebPluginFactory * factory)
+=item  void setNetworkAccessManager()
 
-=item   void setPreferredContentsSize(const QSize & size)
+=item  void setPalette()
 
-=item   void setView(QWidget * view)
+=item  void setPluginFactory()
 
-=item   void setViewportSize(const QSize & size)
+=item  void setPreferredContentsSize()
 
-=item   QWebSettings * settings()
+=item  void setView()
 
-=item   bool shouldInterruptJavaScript()
+=item  void setViewportSize()
 
-=item   bool swallowContextMenuEvent(QContextMenuEvent * event)
+=item  QWebSettings * settings()
 
-=item   quint64 totalBytes()
+=item  bool shouldInterruptJavaScript()
 
-=item   void triggerAction(QWebPage::WebAction action, bool checked = false)
+=item  bool swallowContextMenuEvent()
 
-=item   void triggerAction(QWebPage::WebAction action, bool checked)
+=item  quint64 totalBytes()
 
-=item   QUndoStack * undoStack()
+=item  void triggerAction(, )
 
-=item   void updatePositionDependentActions(const QPoint & pos)
+=item  void triggerAction(,  = false)
 
-=item   QWidget * view()
+=item  QUndoStack * undoStack()
 
-=item   QSize viewportSize()
+=item  void updatePositionDependentActions()
+
+=item  QWidget * view()
+
+=item  QSize viewportSize()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item NavigationTypeLinkClicked
+
+=item NavigationTypeFormSubmitted
+
+=item NavigationTypeBackOrForward
+
+=item NavigationTypeReload
+
+=item NavigationTypeFormResubmitted
+
+=item NavigationTypeOther
+
+=item NoWebAction
+
+=item OpenLink
+
+=item OpenLinkInNewWindow
+
+=item OpenFrameInNewWindow
+
+=item DownloadLinkToDisk
+
+=item CopyLinkToClipboard
+
+=item OpenImageInNewWindow
+
+=item DownloadImageToDisk
+
+=item CopyImageToClipboard
+
+=item Back
+
+=item Forward
+
+=item Stop
+
+=item Reload
+
+=item Cut
+
+=item Copy
+
+=item Paste
+
+=item Undo
+
+=item Redo
+
+=item MoveToNextChar
+
+=item MoveToPreviousChar
+
+=item MoveToNextWord
+
+=item MoveToPreviousWord
+
+=item MoveToNextLine
+
+=item MoveToPreviousLine
+
+=item MoveToStartOfLine
+
+=item MoveToEndOfLine
+
+=item MoveToStartOfBlock
+
+=item MoveToEndOfBlock
+
+=item MoveToStartOfDocument
+
+=item MoveToEndOfDocument
+
+=item SelectNextChar
+
+=item SelectPreviousChar
+
+=item SelectNextWord
+
+=item SelectPreviousWord
+
+=item SelectNextLine
+
+=item SelectPreviousLine
+
+=item SelectStartOfLine
+
+=item SelectEndOfLine
+
+=item SelectStartOfBlock
+
+=item SelectEndOfBlock
+
+=item SelectStartOfDocument
+
+=item SelectEndOfDocument
+
+=item DeleteStartOfWord
+
+=item DeleteEndOfWord
+
+=item SetTextDirectionDefault
+
+=item SetTextDirectionLeftToRight
+
+=item SetTextDirectionRightToLeft
+
+=item ToggleBold
+
+=item ToggleItalic
+
+=item ToggleUnderline
+
+=item InspectElement
+
+=item InsertParagraphSeparator
+
+=item InsertLineSeparator
+
+=item SelectAll
+
+=item ReloadAndBypassCache
+
+=item PasteAndMatchStyle
+
+=item RemoveFormat
+
+=item ToggleStrikethrough
+
+=item ToggleSubscript
+
+=item ToggleSuperscript
+
+=item InsertUnorderedList
+
+=item InsertOrderedList
+
+=item Indent
+
+=item Outdent
+
+=item AlignCenter
+
+=item AlignJustified
+
+=item AlignLeft
+
+=item AlignRight
+
+=item StopScheduledPageRefresh
+
+=item WebActionCount
+
+=item FindBackward
+
+=item FindCaseSensitively
+
+=item FindWrapsAroundDocument
+
+=item HighlightAllOccurrences
+
+=item DontDelegateLinks
+
+=item DelegateExternalLinks
+
+=item DelegateAllLinks
+
+=item WebBrowserWindow
+
+=item WebModalDialog
+
+=item ChooseMultipleFilesExtension
+
+=item ErrorPageExtension
+
+=item QtNetwork
+
+=item Http
+
+=item WebKit
 
 
 =back

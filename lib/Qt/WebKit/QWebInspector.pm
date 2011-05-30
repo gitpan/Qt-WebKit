@@ -7,11 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Gui::QWidget/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,19 +24,26 @@ Qt::WebKit::QWebInspector
 
 =over
 
-=item    QWebInspector(QWidget * parent = 0)
+=item   QWebInspector()
 
-=item    QWebInspector(QWidget * parent)
+=item   QWebInspector( = 0)
 
-=item    ~QWebInspector()
+=item   ~QWebInspector()
 
-=item   bool event(QEvent * arg0)
+=item  bool event()
 
-=item   QWebPage * page()
+=item  QWebPage * page()
 
-=item   void setPage(QWebPage * page)
+=item  void setPage()
 
-=item   QSize sizeHint()
+=item  QSize sizeHint()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

@@ -7,13 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
 
 
 1;
@@ -23,6 +21,13 @@ our $VERSION = '0.01_01';
 Qt::WebKit::QWebPluginFactory
 
 =head1 PUBLIC METHODS
+
+=over
+
+
+=back
+
+=head1 ENUM VALUES
 
 =over
 

@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,31 +23,38 @@ Qt::WebKit::QWebElementCollection
 
 =over
 
-=item    QWebElementCollection()
+=item   QWebElementCollection()
 
-=item    QWebElementCollection(const QWebElementCollection & arg0)
+=item   QWebElementCollection()
 
-=item    QWebElementCollection(const QWebElement & contextElement, const QString & query)
+=item   QWebElementCollection(, )
 
-=item    ~QWebElementCollection()
+=item   ~QWebElementCollection()
 
-=item   void append(const QWebElementCollection & collection)
+=item  void append()
 
-=item   QWebElement at(int i)
+=item  QWebElement at()
 
-=item   int count()
+=item  int count()
 
-=item   QWebElement first()
+=item  QWebElement first()
 
-=item   QWebElement last()
+=item  QWebElement last()
 
-=item   QWebElementCollection operator+(const QWebElementCollection & other)
+=item  QWebElementCollection operator+()
 
-=item   QWebElementCollection & operator+=(const QWebElementCollection & other)
+=item  QWebElementCollection & operator+=()
 
-=item   QWebElementCollection & operator=(const QWebElementCollection & arg0)
+=item  QWebElementCollection & operator=()
 
-=item   QWebElement operator[](int i)
+=item  QWebElement operator[]()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

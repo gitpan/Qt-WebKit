@@ -7,44 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub StandardFont() { 0 }
-sub FixedFont() { 1 }
-sub SerifFont() { 2 }
-sub SansSerifFont() { 3 }
-sub CursiveFont() { 4 }
-sub FantasyFont() { 5 }
-sub AutoLoadImages() { 0 }
-sub JavascriptEnabled() { 1 }
-sub JavaEnabled() { 2 }
-sub PluginsEnabled() { 3 }
-sub PrivateBrowsingEnabled() { 4 }
-sub JavascriptCanOpenWindows() { 5 }
-sub JavascriptCanAccessClipboard() { 6 }
-sub DeveloperExtrasEnabled() { 7 }
-sub LinksIncludedInFocusChain() { 8 }
-sub ZoomTextOnly() { 9 }
-sub PrintElementBackgrounds() { 10 }
-sub OfflineStorageDatabaseEnabled() { 11 }
-sub OfflineWebApplicationCacheEnabled() { 12 }
-sub LocalStorageEnabled() { 13 }
-sub LocalStorageDatabaseEnabled() { 14 }
-sub LocalContentCanAccessRemoteUrls() { 15 }
-sub DnsPrefetchEnabled() { 16 }
-sub MissingImageGraphic() { 0 }
-sub MissingPluginGraphic() { 1 }
-sub DefaultFrameIconGraphic() { 2 }
-sub TextAreaSizeGripCornerGraphic() { 3 }
-sub MinimumFontSize() { 0 }
-sub MinimumLogicalFontSize() { 1 }
-sub DefaultFontSize() { 2 }
-sub DefaultFixedFontSize() { 3 }
 
 
 1;
@@ -57,79 +23,164 @@ Qt::WebKit::QWebSettings
 
 =over
 
-=item   static void clearIconDatabase()
+=item  static void clearIconDatabase()
 
-=item   static void clearMemoryCaches()
+=item  static void clearMemoryCaches()
 
-=item   QString defaultTextEncoding()
+=item  QString defaultTextEncoding()
 
-=item   static void enablePersistentStorage(const QString & path = QString())
+=item  static void enablePersistentStorage()
 
-=item   static void enablePersistentStorage(const QString & path)
+=item  static void enablePersistentStorage( = QString())
 
-=item   QString fontFamily(QWebSettings::FontFamily which)
+=item  QString fontFamily()
 
-=item   int fontSize(QWebSettings::FontSize type)
+=item  int fontSize()
 
-=item   static QWebSettings * globalSettings()
+=item  static QWebSettings * globalSettings()
 
-=item   QWebSettingsPrivate * handle()
+=item  QWebSettingsPrivate * handle()
 
-=item   static QString iconDatabasePath()
+=item  static QString iconDatabasePath()
 
-=item   static QIcon iconForUrl(const QUrl & url)
+=item  static QIcon iconForUrl()
 
-=item   QString localStoragePath()
+=item  QString localStoragePath()
 
-=item   static int maximumPagesInCache()
+=item  static int maximumPagesInCache()
 
-=item   static qint64 offlineStorageDefaultQuota()
+=item  static qint64 offlineStorageDefaultQuota()
 
-=item   static QString offlineStoragePath()
+=item  static QString offlineStoragePath()
 
-=item   static QString offlineWebApplicationCachePath()
+=item  static QString offlineWebApplicationCachePath()
 
-=item   static qint64 offlineWebApplicationCacheQuota()
+=item  static qint64 offlineWebApplicationCacheQuota()
 
-=item   void resetAttribute(QWebSettings::WebAttribute attr)
+=item  void resetAttribute()
 
-=item   void resetFontFamily(QWebSettings::FontFamily which)
+=item  void resetFontFamily()
 
-=item   void resetFontSize(QWebSettings::FontSize type)
+=item  void resetFontSize()
 
-=item   void setAttribute(QWebSettings::WebAttribute attr, bool on)
+=item  void setAttribute(, )
 
-=item   void setDefaultTextEncoding(const QString & encoding)
+=item  void setDefaultTextEncoding()
 
-=item   void setFontFamily(QWebSettings::FontFamily which, const QString & family)
+=item  void setFontFamily(, )
 
-=item   void setFontSize(QWebSettings::FontSize type, int size)
+=item  void setFontSize(, )
 
-=item   static void setIconDatabasePath(const QString & location)
+=item  static void setIconDatabasePath()
 
-=item   void setLocalStoragePath(const QString & path)
+=item  void setLocalStoragePath()
 
-=item   static void setMaximumPagesInCache(int pages)
+=item  static void setMaximumPagesInCache()
 
-=item   static void setObjectCacheCapacities(int cacheMinDeadCapacity, int cacheMaxDead, int totalCapacity)
+=item  static void setObjectCacheCapacities(, , )
 
-=item   static void setOfflineStorageDefaultQuota(qint64 maximumSize)
+=item  static void setOfflineStorageDefaultQuota()
 
-=item   static void setOfflineStoragePath(const QString & path)
+=item  static void setOfflineStoragePath()
 
-=item   static void setOfflineWebApplicationCachePath(const QString & path)
+=item  static void setOfflineWebApplicationCachePath()
 
-=item   static void setOfflineWebApplicationCacheQuota(qint64 maximumSize)
+=item  static void setOfflineWebApplicationCacheQuota()
 
-=item   void setUserStyleSheetUrl(const QUrl & location)
+=item  void setUserStyleSheetUrl()
 
-=item   static void setWebGraphic(QWebSettings::WebGraphic type, const QPixmap & graphic)
+=item  static void setWebGraphic(, )
 
-=item   bool testAttribute(QWebSettings::WebAttribute attr)
+=item  bool testAttribute()
 
-=item   QUrl userStyleSheetUrl()
+=item  QUrl userStyleSheetUrl()
 
-=item   static QPixmap webGraphic(QWebSettings::WebGraphic type)
+=item  static QPixmap webGraphic()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item StandardFont
+
+=item FixedFont
+
+=item SerifFont
+
+=item SansSerifFont
+
+=item CursiveFont
+
+=item FantasyFont
+
+=item AutoLoadImages
+
+=item JavascriptEnabled
+
+=item JavaEnabled
+
+=item PluginsEnabled
+
+=item PrivateBrowsingEnabled
+
+=item JavascriptCanOpenWindows
+
+=item JavascriptCanAccessClipboard
+
+=item DeveloperExtrasEnabled
+
+=item LinksIncludedInFocusChain
+
+=item ZoomTextOnly
+
+=item PrintElementBackgrounds
+
+=item OfflineStorageDatabaseEnabled
+
+=item OfflineWebApplicationCacheEnabled
+
+=item LocalStorageEnabled
+
+=item LocalStorageDatabaseEnabled
+
+=item LocalContentCanAccessRemoteUrls
+
+=item DnsPrefetchEnabled
+
+=item XSSAuditingEnabled
+
+=item AcceleratedCompositingEnabled
+
+=item SpatialNavigationEnabled
+
+=item LocalContentCanAccessFileUrls
+
+=item TiledBackingStoreEnabled
+
+=item FrameFlatteningEnabled
+
+=item SiteSpecificQuirksEnabled
+
+=item MissingImageGraphic
+
+=item MissingPluginGraphic
+
+=item DefaultFrameIconGraphic
+
+=item TextAreaSizeGripCornerGraphic
+
+=item DeleteButtonGraphic
+
+=item MinimumFontSize
+
+=item MinimumLogicalFontSize
+
+=item DefaultFontSize
+
+=item DefaultFixedFontSize
 
 
 =back

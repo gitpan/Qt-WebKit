@@ -7,11 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,19 +24,26 @@ Qt::WebKit::QWebHistoryInterface
 
 =over
 
-=item    QWebHistoryInterface(QObject * parent = 0)
+=item   QWebHistoryInterface()
 
-=item    QWebHistoryInterface(QObject * parent)
+=item   QWebHistoryInterface( = 0)
 
-=item    ~QWebHistoryInterface()
+=item   ~QWebHistoryInterface()
 
-=item   void addHistoryEntry(const QString & url)
+=item  void addHistoryEntry()
 
-=item   static QWebHistoryInterface * defaultInterface()
+=item  static QWebHistoryInterface * defaultInterface()
 
-=item   bool historyContains(const QString & url)
+=item  bool historyContains()
 
-=item   static void setDefaultInterface(QWebHistoryInterface * defaultInterface)
+=item  static void setDefaultInterface()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

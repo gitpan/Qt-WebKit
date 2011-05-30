@@ -44,7 +44,6 @@ INCLUDE:		xs/QWebHitTestResult.xs
 INCLUDE:		xs/QWebInspector.xs
 INCLUDE:		xs/QWebPage.xs
 INCLUDE:		xs/QWebPluginFactory.xs
-INCLUDE:		xs/QWebPluginFactory__MimeType.xs
 INCLUDE:		xs/QWebSecurityOrigin.xs
 INCLUDE:		xs/QWebSettings.xs
 INCLUDE:		xs/QWebView.xs

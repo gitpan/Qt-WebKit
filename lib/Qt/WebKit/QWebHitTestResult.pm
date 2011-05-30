@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,47 +23,54 @@ Qt::WebKit::QWebHitTestResult
 
 =over
 
-=item    QWebHitTestResult()
+=item   QWebHitTestResult()
 
-=item    QWebHitTestResult(const QWebHitTestResult & other)
+=item   QWebHitTestResult()
 
-=item    ~QWebHitTestResult()
+=item   ~QWebHitTestResult()
 
-=item   QString alternateText()
+=item  QString alternateText()
 
-=item   QRect boundingRect()
+=item  QRect boundingRect()
 
-=item   QWebElement element()
+=item  QWebElement element()
 
-=item   QWebElement enclosingBlockElement()
+=item  QWebElement enclosingBlockElement()
 
-=item   QWebFrame * frame()
+=item  QWebFrame * frame()
 
-=item   QUrl imageUrl()
+=item  QUrl imageUrl()
 
-=item   bool isContentEditable()
+=item  bool isContentEditable()
 
-=item   bool isContentSelected()
+=item  bool isContentSelected()
 
-=item   bool isNull()
+=item  bool isNull()
 
-=item   QWebElement linkElement()
+=item  QWebElement linkElement()
 
-=item   QWebFrame * linkTargetFrame()
+=item  QWebFrame * linkTargetFrame()
 
-=item   QString linkText()
+=item  QString linkText()
 
-=item   QUrl linkTitle()
+=item  QUrl linkTitle()
 
-=item   QUrl linkUrl()
+=item  QUrl linkUrl()
 
-=item   QWebHitTestResult & operator=(const QWebHitTestResult & other)
+=item  QWebHitTestResult & operator=()
 
-=item   QPixmap pixmap()
+=item  QPixmap pixmap()
 
-=item   QPoint pos()
+=item  QPoint pos()
 
-=item   QString title()
+=item  QString title()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

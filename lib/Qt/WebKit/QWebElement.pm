@@ -7,16 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub InlineStyle() { 0 }
-sub CascadedStyle() { 1 }
-sub ComputedStyle() { 2 }
 
 
 1;
@@ -29,143 +23,156 @@ Qt::WebKit::QWebElement
 
 =over
 
-=item    QWebElement()
+=item   QWebElement()
 
-=item    QWebElement(const QWebElement & arg0)
+=item   QWebElement()
 
-=item    ~QWebElement()
+=item   ~QWebElement()
 
-=item   void addClass(const QString & name)
+=item  void addClass()
 
-=item   void appendInside(const QString & markup)
+=item  void appendInside()
 
-=item   void appendInside(const QWebElement & element)
+=item  void appendInside()
 
-=item   void appendOutside(const QString & markup)
+=item  void appendOutside()
 
-=item   void appendOutside(const QWebElement & element)
+=item  void appendOutside()
 
-=item   QString attribute(const QString & name, const QString & defaultValue = QString())
+=item  QString attribute(, )
 
-=item   QString attribute(const QString & name, const QString & defaultValue)
+=item  QString attribute(,  = QString())
 
-=item   QString attributeNS(const QString & namespaceUri, const QString & name, const QString & defaultValue = QString())
+=item  QString attributeNS(, , )
 
-=item   QString attributeNS(const QString & namespaceUri, const QString & name, const QString & defaultValue)
+=item  QString attributeNS(, ,  = QString())
 
-=item   QStringList attributeNames(const QString & namespaceUri = QString())
+=item  QStringList attributeNames()
 
-=item   QStringList attributeNames(const QString & namespaceUri)
+=item  QStringList attributeNames( = QString())
 
-=item   QStringList classes()
+=item  QStringList classes()
 
-=item   QWebElement clone()
+=item  QWebElement clone()
 
-=item   QWebElement document()
+=item  QWebElement document()
 
-=item   void encloseContentsWith(const QWebElement & element)
+=item  void encloseContentsWith()
 
-=item   void encloseContentsWith(const QString & markup)
+=item  void encloseContentsWith()
 
-=item   void encloseWith(const QString & markup)
+=item  void encloseWith()
 
-=item   void encloseWith(const QWebElement & element)
+=item  void encloseWith()
 
-=item   QVariant evaluateJavaScript(const QString & scriptSource)
+=item  QVariant evaluateJavaScript()
 
-=item   QWebElementCollection findAll(const QString & selectorQuery)
+=item  QWebElementCollection findAll()
 
-=item   QWebElement findFirst(const QString & selectorQuery)
+=item  QWebElement findFirst()
 
-=item   QWebElement firstChild()
+=item  QWebElement firstChild()
 
-=item   QRect geometry()
+=item  QRect geometry()
 
-=item   bool hasAttribute(const QString & name)
+=item  bool hasAttribute()
 
-=item   bool hasAttributeNS(const QString & namespaceUri, const QString & name)
+=item  bool hasAttributeNS(, )
 
-=item   bool hasAttributes()
+=item  bool hasAttributes()
 
-=item   bool hasClass(const QString & name)
+=item  bool hasClass()
 
-=item   bool hasFocus()
+=item  bool hasFocus()
 
-=item   bool isNull()
+=item  bool isNull()
 
-=item   QWebElement lastChild()
+=item  QWebElement lastChild()
 
-=item   QString localName()
+=item  QString localName()
 
-=item   QString namespaceUri()
+=item  QString namespaceUri()
 
-=item   QWebElement nextSibling()
+=item  QWebElement nextSibling()
 
-=item   bool operator!=(const QWebElement & o)
+=item  bool operator!=()
 
-=item   QWebElement & operator=(const QWebElement & arg0)
+=item  QWebElement & operator=()
 
-=item   bool operator==(const QWebElement & o)
+=item  bool operator==()
 
-=item   QWebElement parent()
+=item  QWebElement parent()
 
-=item   QString prefix()
+=item  QString prefix()
 
-=item   void prependInside(const QString & markup)
+=item  void prependInside()
 
-=item   void prependInside(const QWebElement & element)
+=item  void prependInside()
 
-=item   void prependOutside(const QString & markup)
+=item  void prependOutside()
 
-=item   void prependOutside(const QWebElement & element)
+=item  void prependOutside()
 
-=item   QWebElement previousSibling()
+=item  QWebElement previousSibling()
 
-=item   void removeAllChildren()
+=item  void removeAllChildren()
 
-=item   void removeAttribute(const QString & name)
+=item  void removeAttribute()
 
-=item   void removeAttributeNS(const QString & namespaceUri, const QString & name)
+=item  void removeAttributeNS(, )
 
-=item   void removeClass(const QString & name)
+=item  void removeClass()
 
-=item   void removeFromDocument()
+=item  void removeFromDocument()
 
-=item   void render(QPainter * painter)
+=item  void render()
 
-=item   void replace(const QString & markup)
+=item  void replace()
 
-=item   void replace(const QWebElement & element)
+=item  void replace()
 
-=item   void setAttribute(const QString & name, const QString & value)
+=item  void setAttribute(, )
 
-=item   void setAttributeNS(const QString & namespaceUri, const QString & name, const QString & value)
+=item  void setAttributeNS(, , )
 
-=item   void setFocus()
+=item  void setFocus()
 
-=item   void setInnerXml(const QString & markup)
+=item  void setInnerXml()
 
-=item   void setOuterXml(const QString & markup)
+=item  void setOuterXml()
 
-=item   void setPlainText(const QString & text)
+=item  void setPlainText()
 
-=item   void setStyleProperty(const QString & name, const QString & value)
+=item  void setStyleProperty(, )
 
-=item   QString styleProperty(const QString & name, QWebElement::StyleResolveStrategy strategy)
+=item  QString styleProperty(, )
 
-=item   QString tagName()
+=item  QString tagName()
 
-=item   QWebElement & takeFromDocument()
+=item  QWebElement & takeFromDocument()
 
-=item   QString toInnerXml()
+=item  QString toInnerXml()
 
-=item   QString toOuterXml()
+=item  QString toOuterXml()
 
-=item   QString toPlainText()
+=item  QString toPlainText()
 
-=item   void toggleClass(const QString & name)
+=item  void toggleClass()
 
-=item   QWebFrame * webFrame()
+=item  QWebFrame * webFrame()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item InlineStyle
+
+=item CascadedStyle
+
+=item ComputedStyle
 
 
 =back

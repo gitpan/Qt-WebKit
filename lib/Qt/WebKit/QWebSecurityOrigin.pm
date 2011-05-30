@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,29 +23,36 @@ Qt::WebKit::QWebSecurityOrigin
 
 =over
 
-=item    QWebSecurityOrigin(const QWebSecurityOrigin & other)
+=item   QWebSecurityOrigin()
 
-=item    ~QWebSecurityOrigin()
+=item   ~QWebSecurityOrigin()
 
-=item   static void addLocalScheme(const QString & scheme)
+=item  static void addLocalScheme()
 
-=item   qint64 databaseQuota()
+=item  qint64 databaseQuota()
 
-=item   qint64 databaseUsage()
+=item  qint64 databaseUsage()
 
-=item   QString host()
+=item  QString host()
 
-=item   static QStringList localSchemes()
+=item  static QStringList localSchemes()
 
-=item   QWebSecurityOrigin & operator=(const QWebSecurityOrigin & other)
+=item  QWebSecurityOrigin & operator=()
 
-=item   int port()
+=item  int port()
 
-=item   static void removeLocalScheme(const QString & scheme)
+=item  static void removeLocalScheme()
 
-=item   QString scheme()
+=item  QString scheme()
 
-=item   void setDatabaseQuota(qint64 quota)
+=item  void setDatabaseQuota()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,27 +23,34 @@ Qt::WebKit::QWebHistoryItem
 
 =over
 
-=item    QWebHistoryItem(const QWebHistoryItem & other)
+=item   QWebHistoryItem()
 
-=item    ~QWebHistoryItem()
+=item   ~QWebHistoryItem()
 
-=item   QIcon icon()
+=item  QIcon icon()
 
-=item   bool isValid()
+=item  bool isValid()
 
-=item   QDateTime lastVisited()
+=item  QDateTime lastVisited()
 
-=item   QWebHistoryItem & operator=(const QWebHistoryItem & other)
+=item  QWebHistoryItem & operator=()
 
-=item   QUrl originalUrl()
+=item  QUrl originalUrl()
 
-=item   void setUserData(const QVariant & userData)
+=item  void setUserData()
 
-=item   QString title()
+=item  QString title()
 
-=item   QUrl url()
+=item  QUrl url()
 
-=item   QVariant userData()
+=item  QVariant userData()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back
