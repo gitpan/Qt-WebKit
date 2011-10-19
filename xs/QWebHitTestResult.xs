@@ -19,7 +19,7 @@ PROTOTYPES: DISABLE
 ################################################################
 
 ##  QWebHitTestResult()
-##  QWebHitTestResult()
+##  QWebHitTestResult(const QWebHitTestResult & other)
   void
 QWebHitTestResult::new(...)
 PREINIT:
@@ -245,7 +245,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebHitTestResult & operator=()
+## QWebHitTestResult & operator=(const QWebHitTestResult & other)
 void
 QWebHitTestResult::operator_assign(...)
 PREINIT:

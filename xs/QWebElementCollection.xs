@@ -19,8 +19,8 @@ PROTOTYPES: DISABLE
 ################################################################
 
 ##  QWebElementCollection()
-##  QWebElementCollection()
-##  QWebElementCollection(, )
+##  QWebElementCollection(const QWebElementCollection & arg0)
+##  QWebElementCollection(const QWebElement & contextElement, const QString & query)
   void
 QWebElementCollection::new(...)
 PREINIT:
@@ -80,7 +80,7 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## void append()
+## void append(const QWebElementCollection & collection)
 void
 QWebElementCollection::append(...)
 PREINIT:
@@ -92,7 +92,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## QWebElement at()
+## QWebElement at(int i)
 void
 QWebElementCollection::at(...)
 PREINIT:
@@ -145,7 +145,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElementCollection operator+()
+## QWebElementCollection operator+(const QWebElementCollection & other)
 void
 QWebElementCollection::operator_add(...)
 PREINIT:
@@ -159,7 +159,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElementCollection & operator+=()
+## QWebElementCollection & operator+=(const QWebElementCollection & other)
 void
 QWebElementCollection::operator_add_assign(...)
 PREINIT:
@@ -173,7 +173,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElementCollection & operator=()
+## QWebElementCollection & operator=(const QWebElementCollection & arg0)
 void
 QWebElementCollection::operator_assign(...)
 PREINIT:
@@ -187,7 +187,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElement operator[]()
+## QWebElement operator[](int i)
 void
 QWebElementCollection::operator_array(...)
 PREINIT:

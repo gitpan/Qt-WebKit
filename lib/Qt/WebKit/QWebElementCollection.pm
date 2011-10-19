@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -25,15 +25,15 @@ Qt::WebKit::QWebElementCollection
 
 =item   QWebElementCollection()
 
-=item   QWebElementCollection()
+=item   QWebElementCollection(const QWebElementCollection & arg0)
 
-=item   QWebElementCollection(, )
+=item   QWebElementCollection(const QWebElement & contextElement, const QString & query)
 
 =item   ~QWebElementCollection()
 
-=item  void append()
+=item  void append(const QWebElementCollection & collection)
 
-=item  QWebElement at()
+=item  QWebElement at(int i)
 
 =item  int count()
 
@@ -41,13 +41,13 @@ Qt::WebKit::QWebElementCollection
 
 =item  QWebElement last()
 
-=item  QWebElementCollection operator+()
+=item  QWebElementCollection operator+(const QWebElementCollection & other)
 
-=item  QWebElementCollection & operator+=()
+=item  QWebElementCollection & operator+=(const QWebElementCollection & other)
 
-=item  QWebElementCollection & operator=()
+=item  QWebElementCollection & operator=(const QWebElementCollection & arg0)
 
-=item  QWebElement operator[]()
+=item  QWebElement operator[](int i)
 
 
 =back

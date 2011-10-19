@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -29,13 +29,13 @@ Qt::WebKit::QWebSettings
 
 =item  QString defaultTextEncoding()
 
-=item  static void enablePersistentStorage()
+=item  static void enablePersistentStorage(const QString & path)
 
-=item  static void enablePersistentStorage( = QString())
+=item  static void enablePersistentStorage(const QString & path = QString())
 
-=item  QString fontFamily()
+=item  QString fontFamily(QWebSettings::FontFamily which)
 
-=item  int fontSize()
+=item  int fontSize(QWebSettings::FontSize type)
 
 =item  static QWebSettings * globalSettings()
 
@@ -43,7 +43,7 @@ Qt::WebKit::QWebSettings
 
 =item  static QString iconDatabasePath()
 
-=item  static QIcon iconForUrl()
+=item  static QIcon iconForUrl(const QUrl & url)
 
 =item  QString localStoragePath()
 
@@ -57,45 +57,45 @@ Qt::WebKit::QWebSettings
 
 =item  static qint64 offlineWebApplicationCacheQuota()
 
-=item  void resetAttribute()
+=item  void resetAttribute(QWebSettings::WebAttribute attr)
 
-=item  void resetFontFamily()
+=item  void resetFontFamily(QWebSettings::FontFamily which)
 
-=item  void resetFontSize()
+=item  void resetFontSize(QWebSettings::FontSize type)
 
-=item  void setAttribute(, )
+=item  void setAttribute(QWebSettings::WebAttribute attr, bool on)
 
-=item  void setDefaultTextEncoding()
+=item  void setDefaultTextEncoding(const QString & encoding)
 
-=item  void setFontFamily(, )
+=item  void setFontFamily(QWebSettings::FontFamily which, const QString & family)
 
-=item  void setFontSize(, )
+=item  void setFontSize(QWebSettings::FontSize type, int size)
 
-=item  static void setIconDatabasePath()
+=item  static void setIconDatabasePath(const QString & location)
 
-=item  void setLocalStoragePath()
+=item  void setLocalStoragePath(const QString & path)
 
-=item  static void setMaximumPagesInCache()
+=item  static void setMaximumPagesInCache(int pages)
 
-=item  static void setObjectCacheCapacities(, , )
+=item  static void setObjectCacheCapacities(int cacheMinDeadCapacity, int cacheMaxDead, int totalCapacity)
 
-=item  static void setOfflineStorageDefaultQuota()
+=item  static void setOfflineStorageDefaultQuota(qint64 maximumSize)
 
-=item  static void setOfflineStoragePath()
+=item  static void setOfflineStoragePath(const QString & path)
 
-=item  static void setOfflineWebApplicationCachePath()
+=item  static void setOfflineWebApplicationCachePath(const QString & path)
 
-=item  static void setOfflineWebApplicationCacheQuota()
+=item  static void setOfflineWebApplicationCacheQuota(qint64 maximumSize)
 
-=item  void setUserStyleSheetUrl()
+=item  void setUserStyleSheetUrl(const QUrl & location)
 
-=item  static void setWebGraphic(, )
+=item  static void setWebGraphic(QWebSettings::WebGraphic type, const QPixmap & graphic)
 
-=item  bool testAttribute()
+=item  bool testAttribute(QWebSettings::WebAttribute attr)
 
 =item  QUrl userStyleSheetUrl()
 
-=item  static QPixmap webGraphic()
+=item  static QPixmap webGraphic(QWebSettings::WebGraphic type)
 
 
 =back

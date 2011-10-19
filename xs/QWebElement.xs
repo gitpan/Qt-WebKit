@@ -19,7 +19,7 @@ PROTOTYPES: DISABLE
 ################################################################
 
 ##  QWebElement()
-##  QWebElement()
+##  QWebElement(const QWebElement & arg0)
   void
 QWebElement::new(...)
 PREINIT:
@@ -63,7 +63,7 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## void addClass()
+## void addClass(const QString & name)
 void
 QWebElement::addClass(...)
 PREINIT:
@@ -75,8 +75,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void appendInside()
-## void appendInside()
+## void appendInside(const QString & markup)
+## void appendInside(const QWebElement & element)
 void
 QWebElement::appendInside(...)
 PREINIT:
@@ -105,8 +105,8 @@ PPCODE:
         break;
     }
 
-## void appendOutside()
-## void appendOutside()
+## void appendOutside(const QString & markup)
+## void appendOutside(const QWebElement & element)
 void
 QWebElement::appendOutside(...)
 PREINIT:
@@ -135,8 +135,8 @@ PPCODE:
         break;
     }
 
-## QString attribute(, )
-## QString attribute(,  = QString())
+## QString attribute(const QString & name, const QString & defaultValue)
+## QString attribute(const QString & name, const QString & defaultValue = QString())
 void
 QWebElement::attribute(...)
 PREINIT:
@@ -179,8 +179,8 @@ PPCODE:
         break;
     }
 
-## QString attributeNS(, , )
-## QString attributeNS(, ,  = QString())
+## QString attributeNS(const QString & namespaceUri, const QString & name, const QString & defaultValue)
+## QString attributeNS(const QString & namespaceUri, const QString & name, const QString & defaultValue = QString())
 void
 QWebElement::attributeNS(...)
 PREINIT:
@@ -227,8 +227,8 @@ PPCODE:
         break;
     }
 
-## QStringList attributeNames()
-## QStringList attributeNames( = QString())
+## QStringList attributeNames(const QString & namespaceUri)
+## QStringList attributeNames(const QString & namespaceUri = QString())
 void
 QWebElement::attributeNames(...)
 PREINIT:
@@ -305,8 +305,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void encloseContentsWith()
-## void encloseContentsWith()
+## void encloseContentsWith(const QWebElement & element)
+## void encloseContentsWith(const QString & markup)
 void
 QWebElement::encloseContentsWith(...)
 PREINIT:
@@ -335,8 +335,8 @@ PPCODE:
         break;
     }
 
-## void encloseWith()
-## void encloseWith()
+## void encloseWith(const QString & markup)
+## void encloseWith(const QWebElement & element)
 void
 QWebElement::encloseWith(...)
 PREINIT:
@@ -365,7 +365,7 @@ PPCODE:
         break;
     }
 
-## QVariant evaluateJavaScript()
+## QVariant evaluateJavaScript(const QString & scriptSource)
 void
 QWebElement::evaluateJavaScript(...)
 PREINIT:
@@ -379,7 +379,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElementCollection findAll()
+## QWebElementCollection findAll(const QString & selectorQuery)
 void
 QWebElement::findAll(...)
 PREINIT:
@@ -393,7 +393,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElement findFirst()
+## QWebElement findFirst(const QString & selectorQuery)
 void
 QWebElement::findFirst(...)
 PREINIT:
@@ -433,7 +433,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool hasAttribute()
+## bool hasAttribute(const QString & name)
 void
 QWebElement::hasAttribute(...)
 PREINIT:
@@ -447,7 +447,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool hasAttributeNS(, )
+## bool hasAttributeNS(const QString & namespaceUri, const QString & name)
 void
 QWebElement::hasAttributeNS(...)
 PREINIT:
@@ -476,7 +476,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool hasClass()
+## bool hasClass(const QString & name)
 void
 QWebElement::hasClass(...)
 PREINIT:
@@ -568,7 +568,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool operator!=()
+## bool operator!=(const QWebElement & o)
 void
 QWebElement::operator_not_equal(...)
 PREINIT:
@@ -582,7 +582,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElement & operator=()
+## QWebElement & operator=(const QWebElement & arg0)
 void
 QWebElement::operator_assign(...)
 PREINIT:
@@ -596,7 +596,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool operator==()
+## bool operator==(const QWebElement & o)
 void
 QWebElement::operator_equal_to(...)
 PREINIT:
@@ -636,8 +636,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void prependInside()
-## void prependInside()
+## void prependInside(const QString & markup)
+## void prependInside(const QWebElement & element)
 void
 QWebElement::prependInside(...)
 PREINIT:
@@ -666,8 +666,8 @@ PPCODE:
         break;
     }
 
-## void prependOutside()
-## void prependOutside()
+## void prependOutside(const QString & markup)
+## void prependOutside(const QWebElement & element)
 void
 QWebElement::prependOutside(...)
 PREINIT:
@@ -720,7 +720,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void removeAttribute()
+## void removeAttribute(const QString & name)
 void
 QWebElement::removeAttribute(...)
 PREINIT:
@@ -732,7 +732,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void removeAttributeNS(, )
+## void removeAttributeNS(const QString & namespaceUri, const QString & name)
 void
 QWebElement::removeAttributeNS(...)
 PREINIT:
@@ -746,7 +746,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void removeClass()
+## void removeClass(const QString & name)
 void
 QWebElement::removeClass(...)
 PREINIT:
@@ -769,7 +769,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void render()
+## void render(QPainter * painter)
 void
 QWebElement::render(...)
 PREINIT:
@@ -788,8 +788,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void replace()
-## void replace()
+## void replace(const QString & markup)
+## void replace(const QWebElement & element)
 void
 QWebElement::replace(...)
 PREINIT:
@@ -818,7 +818,7 @@ PPCODE:
         break;
     }
 
-## void setAttribute(, )
+## void setAttribute(const QString & name, const QString & value)
 void
 QWebElement::setAttribute(...)
 PREINIT:
@@ -832,7 +832,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setAttributeNS(, , )
+## void setAttributeNS(const QString & namespaceUri, const QString & name, const QString & value)
 void
 QWebElement::setAttributeNS(...)
 PREINIT:
@@ -859,7 +859,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setInnerXml()
+## void setInnerXml(const QString & markup)
 void
 QWebElement::setInnerXml(...)
 PREINIT:
@@ -871,7 +871,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setOuterXml()
+## void setOuterXml(const QString & markup)
 void
 QWebElement::setOuterXml(...)
 PREINIT:
@@ -883,7 +883,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setPlainText()
+## void setPlainText(const QString & text)
 void
 QWebElement::setPlainText(...)
 PREINIT:
@@ -895,7 +895,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setStyleProperty(, )
+## void setStyleProperty(const QString & name, const QString & value)
 void
 QWebElement::setStyleProperty(...)
 PREINIT:
@@ -909,7 +909,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## QString styleProperty(, )
+## QString styleProperty(const QString & name, QWebElement::StyleResolveStrategy strategy)
 void
 QWebElement::styleProperty(...)
 PREINIT:
@@ -990,7 +990,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void toggleClass()
+## void toggleClass(const QString & name)
 void
 QWebElement::toggleClass(...)
 PREINIT:

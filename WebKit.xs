@@ -25,6 +25,7 @@
 #include "ppport.h"
 #undef do_open
 #undef do_close
+#undef RETURN
 
 typedef bool (*T_FPOINTER_QINTERNALCALLBACK_QNAMESPACE)(void **);
 typedef void (*T_FPOINTER_QTMSGHANDLER_QGLOBAL)(QtMsgType,const char *);
@@ -44,6 +45,7 @@ INCLUDE:		xs/QWebHitTestResult.xs
 INCLUDE:		xs/QWebInspector.xs
 INCLUDE:		xs/QWebPage.xs
 INCLUDE:		xs/QWebPluginFactory.xs
+INCLUDE:		xs/QWebPluginFactory__MimeType.xs
 INCLUDE:		xs/QWebSecurityOrigin.xs
 INCLUDE:		xs/QWebSettings.xs
 INCLUDE:		xs/QWebView.xs

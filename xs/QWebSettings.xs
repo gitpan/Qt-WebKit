@@ -57,8 +57,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## static void enablePersistentStorage()
-## static void enablePersistentStorage( = QString())
+## static void enablePersistentStorage(const QString & path)
+## static void enablePersistentStorage(const QString & path = QString())
 void
 QWebSettings::enablePersistentStorage(...)
 PREINIT:
@@ -92,7 +92,7 @@ PPCODE:
         break;
     }
 
-## QString fontFamily()
+## QString fontFamily(QWebSettings::FontFamily which)
 void
 QWebSettings::fontFamily(...)
 PREINIT:
@@ -106,7 +106,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## int fontSize()
+## int fontSize(QWebSettings::FontSize type)
 void
 QWebSettings::fontSize(...)
 PREINIT:
@@ -159,7 +159,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## static QIcon iconForUrl()
+## static QIcon iconForUrl(const QUrl & url)
 void
 QWebSettings::iconForUrl(...)
 PREINIT:
@@ -251,7 +251,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void resetAttribute()
+## void resetAttribute(QWebSettings::WebAttribute attr)
 void
 QWebSettings::resetAttribute(...)
 PREINIT:
@@ -263,7 +263,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void resetFontFamily()
+## void resetFontFamily(QWebSettings::FontFamily which)
 void
 QWebSettings::resetFontFamily(...)
 PREINIT:
@@ -275,7 +275,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void resetFontSize()
+## void resetFontSize(QWebSettings::FontSize type)
 void
 QWebSettings::resetFontSize(...)
 PREINIT:
@@ -287,7 +287,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setAttribute(, )
+## void setAttribute(QWebSettings::WebAttribute attr, bool on)
 void
 QWebSettings::setAttribute(...)
 PREINIT:
@@ -301,7 +301,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setDefaultTextEncoding()
+## void setDefaultTextEncoding(const QString & encoding)
 void
 QWebSettings::setDefaultTextEncoding(...)
 PREINIT:
@@ -313,7 +313,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setFontFamily(, )
+## void setFontFamily(QWebSettings::FontFamily which, const QString & family)
 void
 QWebSettings::setFontFamily(...)
 PREINIT:
@@ -327,7 +327,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setFontSize(, )
+## void setFontSize(QWebSettings::FontSize type, int size)
 void
 QWebSettings::setFontSize(...)
 PREINIT:
@@ -341,7 +341,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void setIconDatabasePath()
+## static void setIconDatabasePath(const QString & location)
 void
 QWebSettings::setIconDatabasePath(...)
 PREINIT:
@@ -353,7 +353,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setLocalStoragePath()
+## void setLocalStoragePath(const QString & path)
 void
 QWebSettings::setLocalStoragePath(...)
 PREINIT:
@@ -365,7 +365,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void setMaximumPagesInCache()
+## static void setMaximumPagesInCache(int pages)
 void
 QWebSettings::setMaximumPagesInCache(...)
 PREINIT:
@@ -377,7 +377,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void setObjectCacheCapacities(, , )
+## static void setObjectCacheCapacities(int cacheMinDeadCapacity, int cacheMaxDead, int totalCapacity)
 void
 QWebSettings::setObjectCacheCapacities(...)
 PREINIT:
@@ -393,7 +393,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void setOfflineStorageDefaultQuota()
+## static void setOfflineStorageDefaultQuota(qint64 maximumSize)
 void
 QWebSettings::setOfflineStorageDefaultQuota(...)
 PREINIT:
@@ -405,7 +405,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void setOfflineStoragePath()
+## static void setOfflineStoragePath(const QString & path)
 void
 QWebSettings::setOfflineStoragePath(...)
 PREINIT:
@@ -417,7 +417,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void setOfflineWebApplicationCachePath()
+## static void setOfflineWebApplicationCachePath(const QString & path)
 void
 QWebSettings::setOfflineWebApplicationCachePath(...)
 PREINIT:
@@ -429,7 +429,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void setOfflineWebApplicationCacheQuota()
+## static void setOfflineWebApplicationCacheQuota(qint64 maximumSize)
 void
 QWebSettings::setOfflineWebApplicationCacheQuota(...)
 PREINIT:
@@ -441,7 +441,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setUserStyleSheetUrl()
+## void setUserStyleSheetUrl(const QUrl & location)
 void
 QWebSettings::setUserStyleSheetUrl(...)
 PREINIT:
@@ -453,7 +453,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void setWebGraphic(, )
+## static void setWebGraphic(QWebSettings::WebGraphic type, const QPixmap & graphic)
 void
 QWebSettings::setWebGraphic(...)
 PREINIT:
@@ -467,7 +467,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## bool testAttribute()
+## bool testAttribute(QWebSettings::WebAttribute attr)
 void
 QWebSettings::testAttribute(...)
 PREINIT:
@@ -494,7 +494,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## static QPixmap webGraphic()
+## static QPixmap webGraphic(QWebSettings::WebGraphic type)
 void
 QWebSettings::webGraphic(...)
 PREINIT:

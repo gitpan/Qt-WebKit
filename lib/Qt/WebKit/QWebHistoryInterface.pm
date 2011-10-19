@@ -7,8 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Core::QObject/;
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -24,19 +23,19 @@ Qt::WebKit::QWebHistoryInterface
 
 =over
 
-=item   QWebHistoryInterface()
+=item   QWebHistoryInterface(QObject * parent)
 
-=item   QWebHistoryInterface( = 0)
+=item   QWebHistoryInterface(QObject * parent = 0)
 
 =item   ~QWebHistoryInterface()
 
-=item  void addHistoryEntry()
+=item  void addHistoryEntry(const QString & url)
 
 =item  static QWebHistoryInterface * defaultInterface()
 
-=item  bool historyContains()
+=item  bool historyContains(const QString & url)
 
-=item  static void setDefaultInterface()
+=item  static void setDefaultInterface(QWebHistoryInterface * defaultInterface)
 
 
 =back

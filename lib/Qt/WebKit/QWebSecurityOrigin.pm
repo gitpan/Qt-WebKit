@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -23,11 +23,11 @@ Qt::WebKit::QWebSecurityOrigin
 
 =over
 
-=item   QWebSecurityOrigin()
+=item   QWebSecurityOrigin(const QWebSecurityOrigin & other)
 
 =item   ~QWebSecurityOrigin()
 
-=item  static void addLocalScheme()
+=item  static void addLocalScheme(const QString & scheme)
 
 =item  qint64 databaseQuota()
 
@@ -37,15 +37,15 @@ Qt::WebKit::QWebSecurityOrigin
 
 =item  static QStringList localSchemes()
 
-=item  QWebSecurityOrigin & operator=()
+=item  QWebSecurityOrigin & operator=(const QWebSecurityOrigin & other)
 
 =item  int port()
 
-=item  static void removeLocalScheme()
+=item  static void removeLocalScheme(const QString & scheme)
 
 =item  QString scheme()
 
-=item  void setDatabaseQuota()
+=item  void setDatabaseQuota(qint64 quota)
 
 
 =back

@@ -18,7 +18,7 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QWebHistoryItem()
+##  QWebHistoryItem(const QWebHistoryItem & other)
   void
 QWebHistoryItem::new(...)
 PREINIT:
@@ -79,7 +79,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebHistoryItem & operator=()
+## QWebHistoryItem & operator=(const QWebHistoryItem & other)
 void
 QWebHistoryItem::operator_assign(...)
 PREINIT:
@@ -106,7 +106,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setUserData()
+## void setUserData(const QVariant & userData)
 void
 QWebHistoryItem::setUserData(...)
 PREINIT:

@@ -1,6 +1,6 @@
-package Qt::WebKit::QWebPluginFactory;
+package Qt::WebKit::QWebPluginFactory::MimeType;
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
-# classname: QWebPluginFactory
+# classname: QWebPluginFactory::MimeType
 # file     : QtWebKit/qwebpluginfactory.h
 
 use strict;
@@ -17,7 +17,7 @@ our $VERSION = '0.01_03';
 
 =head1 NAME
 
-Qt::WebKit::QWebPluginFactory
+Qt::WebKit::QWebPluginFactory::MimeType
 
 =head1 PUBLIC METHODS
 

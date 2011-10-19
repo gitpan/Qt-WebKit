@@ -7,8 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Core::QObject/;
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -24,9 +23,9 @@ Qt::WebKit::QWebFrame
 
 =over
 
-=item  void addToJavaScriptWindowObject(, )
+=item  void addToJavaScriptWindowObject(const QString & name, QObject * object)
 
-=item  void addToJavaScriptWindowObject(, , )
+=item  void addToJavaScriptWindowObject(const QString & name, QObject * object, QScriptEngine::ValueOwnership ownership)
 
 =item  QUrl baseUrl()
 
@@ -34,13 +33,13 @@ Qt::WebKit::QWebFrame
 
 =item  QWebElement documentElement()
 
-=item  QVariant evaluateJavaScript()
+=item  QVariant evaluateJavaScript(const QString & scriptSource)
 
-=item  bool event()
+=item  bool event(QEvent * arg0)
 
-=item  QWebElementCollection findAllElements()
+=item  QWebElementCollection findAllElements(const QString & selectorQuery)
 
-=item  QWebElement findFirstElement()
+=item  QWebElement findFirstElement(const QString & selectorQuery)
 
 =item  QString frameName()
 
@@ -48,17 +47,17 @@ Qt::WebKit::QWebFrame
 
 =item  bool hasFocus()
 
-=item  QWebHitTestResult hitTestContent()
+=item  QWebHitTestResult hitTestContent(const QPoint & pos)
 
 =item  QIcon icon()
 
-=item  void load()
+=item  void load(const QUrl & url)
 
-=item  void load(, , )
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body)
 
-=item  void load(, ,  = QByteArray())
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body = QByteArray())
 
-=item  void load(,  = QNetworkAccessManager::GetOperation,  = QByteArray())
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray & body = QByteArray())
 
 =item  QWebPage * page()
 
@@ -66,61 +65,61 @@ Qt::WebKit::QWebFrame
 
 =item  QPoint pos()
 
-=item  void print()
+=item  void print(QPrinter * printer)
 
-=item  void render()
+=item  void render(QPainter * arg0)
 
-=item  void render(, )
+=item  void render(QPainter * arg0, const QRegion & clip)
 
-=item  void render(, , )
+=item  void render(QPainter * arg0, QWebFrame::RenderLayer layer, const QRegion & clip)
 
-=item  void render(, ,  = QRegion())
+=item  void render(QPainter * arg0, QWebFrame::RenderLayer layer, const QRegion & clip = QRegion())
 
 =item  QString renderTreeDump()
 
 =item  QUrl requestedUrl()
 
-=item  void scroll(, )
+=item  void scroll(int arg0, int arg1)
 
-=item  QRect scrollBarGeometry()
+=item  QRect scrollBarGeometry(Qt::Orientation orientation)
 
-=item  int scrollBarMaximum()
+=item  int scrollBarMaximum(Qt::Orientation orientation)
 
-=item  int scrollBarMinimum()
+=item  int scrollBarMinimum(Qt::Orientation orientation)
 
-=item  Qt::ScrollBarPolicy scrollBarPolicy()
+=item  Qt::ScrollBarPolicy scrollBarPolicy(Qt::Orientation orientation)
 
-=item  int scrollBarValue()
+=item  int scrollBarValue(Qt::Orientation orientation)
 
 =item  QPoint scrollPosition()
 
-=item  void scrollToAnchor()
+=item  void scrollToAnchor(const QString & anchor)
 
 =item  QWebSecurityOrigin securityOrigin()
 
-=item  void setContent(, , )
+=item  void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl)
 
-=item  void setContent(, ,  = QUrl())
+=item  void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl = QUrl())
 
-=item  void setContent(,  = QString(),  = QUrl())
+=item  void setContent(const QByteArray & data, const QString & mimeType = QString(), const QUrl & baseUrl = QUrl())
 
 =item  void setFocus()
 
-=item  void setHtml(, )
+=item  void setHtml(const QString & html, const QUrl & baseUrl)
 
-=item  void setHtml(,  = QUrl())
+=item  void setHtml(const QString & html, const QUrl & baseUrl = QUrl())
 
-=item  void setScrollBarPolicy(, )
+=item  void setScrollBarPolicy(Qt::Orientation orientation, Qt::ScrollBarPolicy policy)
 
-=item  void setScrollBarValue(, )
+=item  void setScrollBarValue(Qt::Orientation orientation, int value)
 
-=item  void setScrollPosition()
+=item  void setScrollPosition(const QPoint & pos)
 
-=item  void setTextSizeMultiplier()
+=item  void setTextSizeMultiplier(qreal factor)
 
-=item  void setUrl()
+=item  void setUrl(const QUrl & url)
 
-=item  void setZoomFactor()
+=item  void setZoomFactor(qreal factor)
 
 =item  qreal textSizeMultiplier()
 

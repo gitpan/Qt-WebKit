@@ -18,8 +18,8 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QWebPage()
-##  QWebPage( = 0)
+##  QWebPage(QObject * parent)
+##  QWebPage(QObject * parent = 0)
   void
 QWebPage::new(...)
 PREINIT:
@@ -71,7 +71,7 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## QAction * action()
+## QAction * action(QWebPage::WebAction action)
 void
 QWebPage::action(...)
 PREINIT:
@@ -124,7 +124,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool event()
+## bool event(QEvent * arg0)
 void
 QWebPage::event(...)
 PREINIT:
@@ -145,8 +145,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool findText(, )
-## bool findText(,  = 0)
+## bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options)
+## bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options = 0)
 void
 QWebPage::findText(...)
 PREINIT:
@@ -188,7 +188,7 @@ PPCODE:
         break;
     }
 
-## bool focusNextPrevChild()
+## bool focusNextPrevChild(bool next)
 void
 QWebPage::focusNextPrevChild(...)
 PREINIT:
@@ -215,7 +215,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebFrame * frameAt()
+## QWebFrame * frameAt(const QPoint & pos)
 void
 QWebPage::frameAt(...)
 PREINIT:
@@ -242,7 +242,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QVariant inputMethodQuery()
+## QVariant inputMethodQuery(Qt::InputMethodQuery property)
 void
 QWebPage::inputMethodQuery(...)
 PREINIT:
@@ -373,7 +373,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setContentEditable()
+## void setContentEditable(bool editable)
 void
 QWebPage::setContentEditable(...)
 PREINIT:
@@ -385,7 +385,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setForwardUnsupportedContent()
+## void setForwardUnsupportedContent(bool forward)
 void
 QWebPage::setForwardUnsupportedContent(...)
 PREINIT:
@@ -397,7 +397,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setLinkDelegationPolicy()
+## void setLinkDelegationPolicy(QWebPage::LinkDelegationPolicy policy)
 void
 QWebPage::setLinkDelegationPolicy(...)
 PREINIT:
@@ -409,7 +409,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setNetworkAccessManager()
+## void setNetworkAccessManager(QNetworkAccessManager * manager)
 void
 QWebPage::setNetworkAccessManager(...)
 PREINIT:
@@ -428,7 +428,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setPalette()
+## void setPalette(const QPalette & palette)
 void
 QWebPage::setPalette(...)
 PREINIT:
@@ -440,7 +440,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setPluginFactory()
+## void setPluginFactory(QWebPluginFactory * factory)
 void
 QWebPage::setPluginFactory(...)
 PREINIT:
@@ -459,7 +459,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setPreferredContentsSize()
+## void setPreferredContentsSize(const QSize & size)
 void
 QWebPage::setPreferredContentsSize(...)
 PREINIT:
@@ -471,7 +471,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setView()
+## void setView(QWidget * view)
 void
 QWebPage::setView(...)
 PREINIT:
@@ -490,7 +490,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setViewportSize()
+## void setViewportSize(const QSize & size)
 void
 QWebPage::setViewportSize(...)
 PREINIT:
@@ -528,7 +528,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool swallowContextMenuEvent()
+## bool swallowContextMenuEvent(QContextMenuEvent * event)
 void
 QWebPage::swallowContextMenuEvent(...)
 PREINIT:
@@ -562,8 +562,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void triggerAction(, )
-## void triggerAction(,  = false)
+## void triggerAction(QWebPage::WebAction action, bool checked)
+## void triggerAction(QWebPage::WebAction action, bool checked = false)
 void
 QWebPage::triggerAction(...)
 PREINIT:
@@ -614,7 +614,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void updatePositionDependentActions()
+## void updatePositionDependentActions(const QPoint & pos)
 void
 QWebPage::updatePositionDependentActions(...)
 PREINIT:

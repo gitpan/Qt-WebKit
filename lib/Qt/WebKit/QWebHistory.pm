@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -43,13 +43,13 @@ Qt::WebKit::QWebHistory
 
 =item  QWebHistoryItem forwardItem()
 
-=item  void goToItem()
+=item  void goToItem(const QWebHistoryItem & item)
 
-=item  QWebHistoryItem itemAt()
+=item  QWebHistoryItem itemAt(int i)
 
 =item  int maximumItemCount()
 
-=item  void setMaximumItemCount()
+=item  void setMaximumItemCount(int count)
 
 
 =back

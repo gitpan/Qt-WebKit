@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -25,31 +25,31 @@ Qt::WebKit::QWebElement
 
 =item   QWebElement()
 
-=item   QWebElement()
+=item   QWebElement(const QWebElement & arg0)
 
 =item   ~QWebElement()
 
-=item  void addClass()
+=item  void addClass(const QString & name)
 
-=item  void appendInside()
+=item  void appendInside(const QString & markup)
 
-=item  void appendInside()
+=item  void appendInside(const QWebElement & element)
 
-=item  void appendOutside()
+=item  void appendOutside(const QString & markup)
 
-=item  void appendOutside()
+=item  void appendOutside(const QWebElement & element)
 
-=item  QString attribute(, )
+=item  QString attribute(const QString & name, const QString & defaultValue)
 
-=item  QString attribute(,  = QString())
+=item  QString attribute(const QString & name, const QString & defaultValue = QString())
 
-=item  QString attributeNS(, , )
+=item  QString attributeNS(const QString & namespaceUri, const QString & name, const QString & defaultValue)
 
-=item  QString attributeNS(, ,  = QString())
+=item  QString attributeNS(const QString & namespaceUri, const QString & name, const QString & defaultValue = QString())
 
-=item  QStringList attributeNames()
+=item  QStringList attributeNames(const QString & namespaceUri)
 
-=item  QStringList attributeNames( = QString())
+=item  QStringList attributeNames(const QString & namespaceUri = QString())
 
 =item  QStringList classes()
 
@@ -57,31 +57,31 @@ Qt::WebKit::QWebElement
 
 =item  QWebElement document()
 
-=item  void encloseContentsWith()
+=item  void encloseContentsWith(const QWebElement & element)
 
-=item  void encloseContentsWith()
+=item  void encloseContentsWith(const QString & markup)
 
-=item  void encloseWith()
+=item  void encloseWith(const QString & markup)
 
-=item  void encloseWith()
+=item  void encloseWith(const QWebElement & element)
 
-=item  QVariant evaluateJavaScript()
+=item  QVariant evaluateJavaScript(const QString & scriptSource)
 
-=item  QWebElementCollection findAll()
+=item  QWebElementCollection findAll(const QString & selectorQuery)
 
-=item  QWebElement findFirst()
+=item  QWebElement findFirst(const QString & selectorQuery)
 
 =item  QWebElement firstChild()
 
 =item  QRect geometry()
 
-=item  bool hasAttribute()
+=item  bool hasAttribute(const QString & name)
 
-=item  bool hasAttributeNS(, )
+=item  bool hasAttributeNS(const QString & namespaceUri, const QString & name)
 
 =item  bool hasAttributes()
 
-=item  bool hasClass()
+=item  bool hasClass(const QString & name)
 
 =item  bool hasFocus()
 
@@ -95,57 +95,57 @@ Qt::WebKit::QWebElement
 
 =item  QWebElement nextSibling()
 
-=item  bool operator!=()
+=item  bool operator!=(const QWebElement & o)
 
-=item  QWebElement & operator=()
+=item  QWebElement & operator=(const QWebElement & arg0)
 
-=item  bool operator==()
+=item  bool operator==(const QWebElement & o)
 
 =item  QWebElement parent()
 
 =item  QString prefix()
 
-=item  void prependInside()
+=item  void prependInside(const QString & markup)
 
-=item  void prependInside()
+=item  void prependInside(const QWebElement & element)
 
-=item  void prependOutside()
+=item  void prependOutside(const QString & markup)
 
-=item  void prependOutside()
+=item  void prependOutside(const QWebElement & element)
 
 =item  QWebElement previousSibling()
 
 =item  void removeAllChildren()
 
-=item  void removeAttribute()
+=item  void removeAttribute(const QString & name)
 
-=item  void removeAttributeNS(, )
+=item  void removeAttributeNS(const QString & namespaceUri, const QString & name)
 
-=item  void removeClass()
+=item  void removeClass(const QString & name)
 
 =item  void removeFromDocument()
 
-=item  void render()
+=item  void render(QPainter * painter)
 
-=item  void replace()
+=item  void replace(const QString & markup)
 
-=item  void replace()
+=item  void replace(const QWebElement & element)
 
-=item  void setAttribute(, )
+=item  void setAttribute(const QString & name, const QString & value)
 
-=item  void setAttributeNS(, , )
+=item  void setAttributeNS(const QString & namespaceUri, const QString & name, const QString & value)
 
 =item  void setFocus()
 
-=item  void setInnerXml()
+=item  void setInnerXml(const QString & markup)
 
-=item  void setOuterXml()
+=item  void setOuterXml(const QString & markup)
 
-=item  void setPlainText()
+=item  void setPlainText(const QString & text)
 
-=item  void setStyleProperty(, )
+=item  void setStyleProperty(const QString & name, const QString & value)
 
-=item  QString styleProperty(, )
+=item  QString styleProperty(const QString & name, QWebElement::StyleResolveStrategy strategy)
 
 =item  QString tagName()
 
@@ -157,7 +157,7 @@ Qt::WebKit::QWebElement
 
 =item  QString toPlainText()
 
-=item  void toggleClass()
+=item  void toggleClass(const QString & name)
 
 =item  QWebFrame * webFrame()
 

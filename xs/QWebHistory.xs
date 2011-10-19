@@ -146,7 +146,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void goToItem()
+## void goToItem(const QWebHistoryItem & item)
 void
 QWebHistory::goToItem(...)
 PREINIT:
@@ -158,7 +158,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## QWebHistoryItem itemAt()
+## QWebHistoryItem itemAt(int i)
 void
 QWebHistory::itemAt(...)
 PREINIT:
@@ -185,7 +185,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setMaximumItemCount()
+## void setMaximumItemCount(int count)
 void
 QWebHistory::setMaximumItemCount(...)
 PREINIT:

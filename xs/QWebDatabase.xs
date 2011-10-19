@@ -18,7 +18,7 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QWebDatabase()
+##  QWebDatabase(const QWebDatabase & other)
   void
 QWebDatabase::new(...)
 PREINIT:
@@ -92,7 +92,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebDatabase & operator=()
+## QWebDatabase & operator=(const QWebDatabase & other)
 void
 QWebDatabase::operator_assign(...)
 PREINIT:
@@ -130,7 +130,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void removeDatabase()
+## static void removeDatabase(const QWebDatabase & arg0)
 void
 QWebDatabase::removeDatabase(...)
 PREINIT:

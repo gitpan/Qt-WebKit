@@ -18,8 +18,8 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QWebHistoryInterface()
-##  QWebHistoryInterface( = 0)
+##  QWebHistoryInterface(QObject * parent)
+##  QWebHistoryInterface(QObject * parent = 0)
   void
 QWebHistoryInterface::new(...)
 PREINIT:
@@ -65,7 +65,7 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## void addHistoryEntry()
+## void addHistoryEntry(const QString & url)
 void
 QWebHistoryInterface::addHistoryEntry(...)
 PREINIT:
@@ -90,7 +90,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool historyContains()
+## bool historyContains(const QString & url)
 void
 QWebHistoryInterface::historyContains(...)
 PREINIT:
@@ -104,7 +104,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## static void setDefaultInterface()
+## static void setDefaultInterface(QWebHistoryInterface * defaultInterface)
 void
 QWebHistoryInterface::setDefaultInterface(...)
 PREINIT:

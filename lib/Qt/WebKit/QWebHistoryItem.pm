@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -23,7 +23,7 @@ Qt::WebKit::QWebHistoryItem
 
 =over
 
-=item   QWebHistoryItem()
+=item   QWebHistoryItem(const QWebHistoryItem & other)
 
 =item   ~QWebHistoryItem()
 
@@ -33,11 +33,11 @@ Qt::WebKit::QWebHistoryItem
 
 =item  QDateTime lastVisited()
 
-=item  QWebHistoryItem & operator=()
+=item  QWebHistoryItem & operator=(const QWebHistoryItem & other)
 
 =item  QUrl originalUrl()
 
-=item  void setUserData()
+=item  void setUserData(const QVariant & userData)
 
 =item  QString title()
 

@@ -18,8 +18,8 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QWebView()
-##  QWebView( = 0)
+##  QWebView(QWidget * parent)
+##  QWebView(QWidget * parent = 0)
   void
 QWebView::new(...)
 PREINIT:
@@ -82,7 +82,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## bool event()
+## bool event(QEvent * arg0)
 void
 QWebView::event(...)
 PREINIT:
@@ -103,8 +103,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool findText(, )
-## bool findText(,  = 0)
+## bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options)
+## bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options = 0)
 void
 QWebView::findText(...)
 PREINIT:
@@ -183,7 +183,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QVariant inputMethodQuery()
+## QVariant inputMethodQuery(Qt::InputMethodQuery property)
 void
 QWebView::inputMethodQuery(...)
 PREINIT:
@@ -210,10 +210,10 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void load()
-## void load(, , )
-## void load(, ,  = QByteArray())
-## void load(,  = QNetworkAccessManager::GetOperation,  = QByteArray())
+## void load(const QUrl & url)
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body)
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body = QByteArray())
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray & body = QByteArray())
 void
 QWebView::load(...)
 PREINIT:
@@ -290,7 +290,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QAction * pageAction()
+## QAction * pageAction(QWebPage::WebAction action)
 void
 QWebView::pageAction(...)
 PREINIT:
@@ -304,7 +304,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void print()
+## void print(QPrinter * arg0)
 void
 QWebView::print(...)
 PREINIT:
@@ -360,9 +360,9 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setContent(, , )
-## void setContent(, ,  = QUrl())
-## void setContent(,  = QString(),  = QUrl())
+## void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl)
+## void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl = QUrl())
+## void setContent(const QByteArray & data, const QString & mimeType = QString(), const QUrl & baseUrl = QUrl())
 void
 QWebView::setContent(...)
 PREINIT:
@@ -421,8 +421,8 @@ PPCODE:
         break;
     }
 
-## void setHtml(, )
-## void setHtml(,  = QUrl())
+## void setHtml(const QString & html, const QUrl & baseUrl)
+## void setHtml(const QString & html, const QUrl & baseUrl = QUrl())
 void
 QWebView::setHtml(...)
 PREINIT:
@@ -461,7 +461,7 @@ PPCODE:
         break;
     }
 
-## void setPage()
+## void setPage(QWebPage * page)
 void
 QWebView::setPage(...)
 PREINIT:
@@ -480,8 +480,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setRenderHint(, )
-## void setRenderHint(,  = true)
+## void setRenderHint(QPainter::RenderHint hint, bool enabled)
+## void setRenderHint(QPainter::RenderHint hint, bool enabled = true)
 void
 QWebView::setRenderHint(...)
 PREINIT:
@@ -519,7 +519,7 @@ PPCODE:
         break;
     }
 
-## void setRenderHints()
+## void setRenderHints(QFlags<QPainter::RenderHint> hints)
 void
 QWebView::setRenderHints(...)
 PREINIT:
@@ -531,7 +531,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setTextSizeMultiplier()
+## void setTextSizeMultiplier(qreal factor)
 void
 QWebView::setTextSizeMultiplier(...)
 PREINIT:
@@ -543,7 +543,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setUrl()
+## void setUrl(const QUrl & url)
 void
 QWebView::setUrl(...)
 PREINIT:
@@ -555,7 +555,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setZoomFactor()
+## void setZoomFactor(qreal factor)
 void
 QWebView::setZoomFactor(...)
 PREINIT:
@@ -630,8 +630,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void triggerPageAction(, )
-## void triggerPageAction(,  = false)
+## void triggerPageAction(QWebPage::WebAction action, bool checked)
+## void triggerPageAction(QWebPage::WebAction action, bool checked = false)
 void
 QWebView::triggerPageAction(...)
 PREINIT:

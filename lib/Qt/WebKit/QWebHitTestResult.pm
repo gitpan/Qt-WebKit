@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -25,7 +25,7 @@ Qt::WebKit::QWebHitTestResult
 
 =item   QWebHitTestResult()
 
-=item   QWebHitTestResult()
+=item   QWebHitTestResult(const QWebHitTestResult & other)
 
 =item   ~QWebHitTestResult()
 
@@ -57,7 +57,7 @@ Qt::WebKit::QWebHitTestResult
 
 =item  QUrl linkUrl()
 
-=item  QWebHitTestResult & operator=()
+=item  QWebHitTestResult & operator=(const QWebHitTestResult & other)
 
 =item  QPixmap pixmap()
 

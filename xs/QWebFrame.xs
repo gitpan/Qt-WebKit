@@ -22,8 +22,8 @@ PROTOTYPES: DISABLE
 
 
 
-## void addToJavaScriptWindowObject(, )
-## void addToJavaScriptWindowObject(, , )
+## void addToJavaScriptWindowObject(const QString & name, QObject * object)
+## void addToJavaScriptWindowObject(const QString & name, QObject * object, QScriptEngine::ValueOwnership ownership)
 void
 QWebFrame::addToJavaScriptWindowObject(...)
 PREINIT:
@@ -117,7 +117,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QVariant evaluateJavaScript()
+## QVariant evaluateJavaScript(const QString & scriptSource)
 void
 QWebFrame::evaluateJavaScript(...)
 PREINIT:
@@ -131,7 +131,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool event()
+## bool event(QEvent * arg0)
 void
 QWebFrame::event(...)
 PREINIT:
@@ -152,7 +152,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElementCollection findAllElements()
+## QWebElementCollection findAllElements(const QString & selectorQuery)
 void
 QWebFrame::findAllElements(...)
 PREINIT:
@@ -166,7 +166,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebElement findFirstElement()
+## QWebElement findFirstElement(const QString & selectorQuery)
 void
 QWebFrame::findFirstElement(...)
 PREINIT:
@@ -219,7 +219,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebHitTestResult hitTestContent()
+## QWebHitTestResult hitTestContent(const QPoint & pos)
 void
 QWebFrame::hitTestContent(...)
 PREINIT:
@@ -246,10 +246,10 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void load()
-## void load(, , )
-## void load(, ,  = QByteArray())
-## void load(,  = QNetworkAccessManager::GetOperation,  = QByteArray())
+## void load(const QUrl & url)
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body)
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body = QByteArray())
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray & body = QByteArray())
 void
 QWebFrame::load(...)
 PREINIT:
@@ -352,7 +352,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void print()
+## void print(QPrinter * printer)
 void
 QWebFrame::print(...)
 PREINIT:
@@ -371,10 +371,10 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void render()
-## void render(, )
-## void render(, , )
-## void render(, ,  = QRegion())
+## void render(QPainter * arg0)
+## void render(QPainter * arg0, const QRegion & clip)
+## void render(QPainter * arg0, QWebFrame::RenderLayer layer, const QRegion & clip)
+## void render(QPainter * arg0, QWebFrame::RenderLayer layer, const QRegion & clip = QRegion())
 void
 QWebFrame::render(...)
 PREINIT:
@@ -491,7 +491,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void scroll(, )
+## void scroll(int arg0, int arg1)
 void
 QWebFrame::scroll(...)
 PREINIT:
@@ -505,7 +505,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## QRect scrollBarGeometry()
+## QRect scrollBarGeometry(Qt::Orientation orientation)
 void
 QWebFrame::scrollBarGeometry(...)
 PREINIT:
@@ -519,7 +519,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## int scrollBarMaximum()
+## int scrollBarMaximum(Qt::Orientation orientation)
 void
 QWebFrame::scrollBarMaximum(...)
 PREINIT:
@@ -533,7 +533,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## int scrollBarMinimum()
+## int scrollBarMinimum(Qt::Orientation orientation)
 void
 QWebFrame::scrollBarMinimum(...)
 PREINIT:
@@ -547,7 +547,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## Qt::ScrollBarPolicy scrollBarPolicy()
+## Qt::ScrollBarPolicy scrollBarPolicy(Qt::Orientation orientation)
 void
 QWebFrame::scrollBarPolicy(...)
 PREINIT:
@@ -561,7 +561,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## int scrollBarValue()
+## int scrollBarValue(Qt::Orientation orientation)
 void
 QWebFrame::scrollBarValue(...)
 PREINIT:
@@ -588,7 +588,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void scrollToAnchor()
+## void scrollToAnchor(const QString & anchor)
 void
 QWebFrame::scrollToAnchor(...)
 PREINIT:
@@ -613,9 +613,9 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setContent(, , )
-## void setContent(, ,  = QUrl())
-## void setContent(,  = QString(),  = QUrl())
+## void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl)
+## void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl = QUrl())
+## void setContent(const QByteArray & data, const QString & mimeType = QString(), const QUrl & baseUrl = QUrl())
 void
 QWebFrame::setContent(...)
 PREINIT:
@@ -685,8 +685,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setHtml(, )
-## void setHtml(,  = QUrl())
+## void setHtml(const QString & html, const QUrl & baseUrl)
+## void setHtml(const QString & html, const QUrl & baseUrl = QUrl())
 void
 QWebFrame::setHtml(...)
 PREINIT:
@@ -725,7 +725,7 @@ PPCODE:
         break;
     }
 
-## void setScrollBarPolicy(, )
+## void setScrollBarPolicy(Qt::Orientation orientation, Qt::ScrollBarPolicy policy)
 void
 QWebFrame::setScrollBarPolicy(...)
 PREINIT:
@@ -739,7 +739,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setScrollBarValue(, )
+## void setScrollBarValue(Qt::Orientation orientation, int value)
 void
 QWebFrame::setScrollBarValue(...)
 PREINIT:
@@ -753,7 +753,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setScrollPosition()
+## void setScrollPosition(const QPoint & pos)
 void
 QWebFrame::setScrollPosition(...)
 PREINIT:
@@ -765,7 +765,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setTextSizeMultiplier()
+## void setTextSizeMultiplier(qreal factor)
 void
 QWebFrame::setTextSizeMultiplier(...)
 PREINIT:
@@ -777,7 +777,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setUrl()
+## void setUrl(const QUrl & url)
 void
 QWebFrame::setUrl(...)
 PREINIT:
@@ -789,7 +789,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setZoomFactor()
+## void setZoomFactor(qreal factor)
 void
 QWebFrame::setZoomFactor(...)
 PREINIT:

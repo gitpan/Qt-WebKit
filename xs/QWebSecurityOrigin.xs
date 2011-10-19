@@ -18,7 +18,7 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QWebSecurityOrigin()
+##  QWebSecurityOrigin(const QWebSecurityOrigin & other)
   void
 QWebSecurityOrigin::new(...)
 PREINIT:
@@ -40,7 +40,7 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## static void addLocalScheme()
+## static void addLocalScheme(const QString & scheme)
 void
 QWebSecurityOrigin::addLocalScheme(...)
 PREINIT:
@@ -104,7 +104,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QWebSecurityOrigin & operator=()
+## QWebSecurityOrigin & operator=(const QWebSecurityOrigin & other)
 void
 QWebSecurityOrigin::operator_assign(...)
 PREINIT:
@@ -131,7 +131,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## static void removeLocalScheme()
+## static void removeLocalScheme(const QString & scheme)
 void
 QWebSecurityOrigin::removeLocalScheme(...)
 PREINIT:
@@ -156,7 +156,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setDatabaseQuota()
+## void setDatabaseQuota(qint64 quota)
 void
 QWebSecurityOrigin::setDatabaseQuota(...)
 PREINIT:

@@ -7,8 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Gui::QWidget/;
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -24,17 +23,17 @@ Qt::WebKit::QWebInspector
 
 =over
 
-=item   QWebInspector()
+=item   QWebInspector(QWidget * parent)
 
-=item   QWebInspector( = 0)
+=item   QWebInspector(QWidget * parent = 0)
 
 =item   ~QWebInspector()
 
-=item  bool event()
+=item  bool event(QEvent * arg0)
 
 =item  QWebPage * page()
 
-=item  void setPage()
+=item  void setPage(QWebPage * page)
 
 =item  QSize sizeHint()
 

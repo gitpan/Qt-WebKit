@@ -18,8 +18,8 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QGraphicsWebView()
-##  QGraphicsWebView( = 0)
+##  QGraphicsWebView(QGraphicsItem * parent)
+##  QGraphicsWebView(QGraphicsItem * parent = 0)
   void
 QGraphicsWebView::new(...)
 PREINIT:
@@ -32,7 +32,10 @@ PPCODE:
       {
         if (1) {
       
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QGraphicsWebView(arg10);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::QGraphicsWebView", (void *)ret);
+    XSRETURN(1);
     }
         break;
       }
@@ -47,7 +50,10 @@ PPCODE:
     }
     else
         Perl_croak(aTHX_ "arg00 is not of type Qt::Gui::QGraphicsItem");
-    Perl_croak(aTHX_ "Trying to create abstract class object");
+    ret = new QGraphicsWebView(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::QGraphicsWebView", (void *)ret);
+    XSRETURN(1);
     }
 	else
             Perl_croak(aTHX_ "wrong number/type of arguments passed in");
@@ -76,7 +82,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## bool event()
+## bool event(QEvent * arg0)
 void
 QGraphicsWebView::event(...)
 PREINIT:
@@ -97,8 +103,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool findText(, )
-## bool findText(,  = 0)
+## bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options)
+## bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options = 0)
 void
 QGraphicsWebView::findText(...)
 PREINIT:
@@ -177,7 +183,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QVariant inputMethodQuery()
+## QVariant inputMethodQuery(Qt::InputMethodQuery query)
 void
 QGraphicsWebView::inputMethodQuery(...)
 PREINIT:
@@ -217,7 +223,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QVariant itemChange(, )
+## QVariant itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant & value)
 void
 QGraphicsWebView::itemChange(...)
 PREINIT:
@@ -233,10 +239,10 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void load()
-## void load(, , )
-## void load(, ,  = QByteArray())
-## void load(,  = QNetworkAccessManager::GetOperation,  = QByteArray())
+## void load(const QUrl & url)
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body)
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body = QByteArray())
+## void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray & body = QByteArray())
 void
 QGraphicsWebView::load(...)
 PREINIT:
@@ -313,7 +319,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QAction * pageAction()
+## QAction * pageAction(QWebPage::WebAction action)
 void
 QGraphicsWebView::pageAction(...)
 PREINIT:
@@ -327,8 +333,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void paint(, , )
-## void paint(, ,  = 0)
+## void paint(QPainter * arg0, const QStyleOptionGraphicsItem * options, QWidget * widget)
+## void paint(QPainter * arg0, const QStyleOptionGraphicsItem * options, QWidget * widget = 0)
 void
 QGraphicsWebView::paint(...)
 PREINIT:
@@ -429,9 +435,9 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setContent(, , )
-## void setContent(, ,  = QUrl())
-## void setContent(,  = QString(),  = QUrl())
+## void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl)
+## void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl = QUrl())
+## void setContent(const QByteArray & data, const QString & mimeType = QString(), const QUrl & baseUrl = QUrl())
 void
 QGraphicsWebView::setContent(...)
 PREINIT:
@@ -490,7 +496,7 @@ PPCODE:
         break;
     }
 
-## void setGeometry()
+## void setGeometry(const QRectF & rect)
 void
 QGraphicsWebView::setGeometry(...)
 PREINIT:
@@ -502,8 +508,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setHtml(, )
-## void setHtml(,  = QUrl())
+## void setHtml(const QString & html, const QUrl & baseUrl)
+## void setHtml(const QString & html, const QUrl & baseUrl = QUrl())
 void
 QGraphicsWebView::setHtml(...)
 PREINIT:
@@ -542,7 +548,7 @@ PPCODE:
         break;
     }
 
-## void setPage()
+## void setPage(QWebPage * arg0)
 void
 QGraphicsWebView::setPage(...)
 PREINIT:
@@ -561,7 +567,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setResizesToContents()
+## void setResizesToContents(bool enabled)
 void
 QGraphicsWebView::setResizesToContents(...)
 PREINIT:
@@ -573,7 +579,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setTiledBackingStoreFrozen()
+## void setTiledBackingStoreFrozen(bool frozen)
 void
 QGraphicsWebView::setTiledBackingStoreFrozen(...)
 PREINIT:
@@ -585,7 +591,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setUrl()
+## void setUrl(const QUrl & arg0)
 void
 QGraphicsWebView::setUrl(...)
 PREINIT:
@@ -597,7 +603,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setZoomFactor()
+## void setZoomFactor(qreal arg0)
 void
 QGraphicsWebView::setZoomFactor(...)
 PREINIT:
@@ -622,7 +628,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSizeF sizeHint(, )
+## QSizeF sizeHint(Qt::SizeHint which, const QSizeF & constraint)
 void
 QGraphicsWebView::sizeHint(...)
 PREINIT:
@@ -662,8 +668,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void triggerPageAction(, )
-## void triggerPageAction(,  = false)
+## void triggerPageAction(QWebPage::WebAction action, bool checked)
+## void triggerPageAction(QWebPage::WebAction action, bool checked = false)
 void
 QGraphicsWebView::triggerPageAction(...)
 PREINIT:

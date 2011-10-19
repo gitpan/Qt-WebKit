@@ -7,8 +7,9 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Gui::QGraphicsWidget/;
+our $VERSION = '0.01_03';
+use base qw/Qt::Gui::QGraphicsWidget/;
+#our @ISA = qw/Qt::Gui::QGraphicsWidget/;
 
 
 # FIXME: operator overload
@@ -24,19 +25,19 @@ Qt::WebKit::QGraphicsWebView
 
 =over
 
-=item   QGraphicsWebView()
+=item   QGraphicsWebView(QGraphicsItem * parent)
 
-=item   QGraphicsWebView( = 0)
+=item   QGraphicsWebView(QGraphicsItem * parent = 0)
 
 =item   ~QGraphicsWebView()
 
 =item  void back()
 
-=item  bool event()
+=item  bool event(QEvent * arg0)
 
-=item  bool findText(, )
+=item  bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options)
 
-=item  bool findText(,  = 0)
+=item  bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options = 0)
 
 =item  void forward()
 
@@ -44,67 +45,67 @@ Qt::WebKit::QGraphicsWebView
 
 =item  QIcon icon()
 
-=item  QVariant inputMethodQuery()
+=item  QVariant inputMethodQuery(Qt::InputMethodQuery query)
 
 =item  bool isModified()
 
 =item  bool isTiledBackingStoreFrozen()
 
-=item  QVariant itemChange(, )
+=item  QVariant itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant & value)
 
-=item  void load()
+=item  void load(const QUrl & url)
 
-=item  void load(, , )
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body)
 
-=item  void load(, ,  = QByteArray())
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body = QByteArray())
 
-=item  void load(,  = QNetworkAccessManager::GetOperation,  = QByteArray())
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray & body = QByteArray())
 
 =item  QWebPage * page()
 
-=item  QAction * pageAction()
+=item  QAction * pageAction(QWebPage::WebAction action)
 
-=item  void paint(, , )
+=item  void paint(QPainter * arg0, const QStyleOptionGraphicsItem * options, QWidget * widget)
 
-=item  void paint(, ,  = 0)
+=item  void paint(QPainter * arg0, const QStyleOptionGraphicsItem * options, QWidget * widget = 0)
 
 =item  void reload()
 
 =item  bool resizesToContents()
 
-=item  void setContent(, , )
+=item  void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl)
 
-=item  void setContent(, ,  = QUrl())
+=item  void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl = QUrl())
 
-=item  void setContent(,  = QString(),  = QUrl())
+=item  void setContent(const QByteArray & data, const QString & mimeType = QString(), const QUrl & baseUrl = QUrl())
 
-=item  void setGeometry()
+=item  void setGeometry(const QRectF & rect)
 
-=item  void setHtml(, )
+=item  void setHtml(const QString & html, const QUrl & baseUrl)
 
-=item  void setHtml(,  = QUrl())
+=item  void setHtml(const QString & html, const QUrl & baseUrl = QUrl())
 
-=item  void setPage()
+=item  void setPage(QWebPage * arg0)
 
-=item  void setResizesToContents()
+=item  void setResizesToContents(bool enabled)
 
-=item  void setTiledBackingStoreFrozen()
+=item  void setTiledBackingStoreFrozen(bool frozen)
 
-=item  void setUrl()
+=item  void setUrl(const QUrl & arg0)
 
-=item  void setZoomFactor()
+=item  void setZoomFactor(qreal arg0)
 
 =item  QWebSettings * settings()
 
-=item  QSizeF sizeHint(, )
+=item  QSizeF sizeHint(Qt::SizeHint which, const QSizeF & constraint)
 
 =item  void stop()
 
 =item  QString title()
 
-=item  void triggerPageAction(, )
+=item  void triggerPageAction(QWebPage::WebAction action, bool checked)
 
-=item  void triggerPageAction(,  = false)
+=item  void triggerPageAction(QWebPage::WebAction action, bool checked = false)
 
 =item  void updateGeometry()
 

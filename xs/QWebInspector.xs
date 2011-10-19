@@ -18,8 +18,8 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QWebInspector()
-##  QWebInspector( = 0)
+##  QWebInspector(QWidget * parent)
+##  QWebInspector(QWidget * parent = 0)
   void
 QWebInspector::new(...)
 PREINIT:
@@ -71,7 +71,7 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## bool event()
+## bool event(QEvent * arg0)
 void
 QWebInspector::event(...)
 PREINIT:
@@ -105,7 +105,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setPage()
+## void setPage(QWebPage * page)
 void
 QWebInspector::setPage(...)
 PREINIT:

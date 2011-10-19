@@ -7,8 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Gui::QWidget/;
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -24,19 +23,19 @@ Qt::WebKit::QWebView
 
 =over
 
-=item   QWebView()
+=item   QWebView(QWidget * parent)
 
-=item   QWebView( = 0)
+=item   QWebView(QWidget * parent = 0)
 
 =item   ~QWebView()
 
 =item  void back()
 
-=item  bool event()
+=item  bool event(QEvent * arg0)
 
-=item  bool findText(, )
+=item  bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options)
 
-=item  bool findText(,  = 0)
+=item  bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options = 0)
 
 =item  void forward()
 
@@ -44,23 +43,23 @@ Qt::WebKit::QWebView
 
 =item  QIcon icon()
 
-=item  QVariant inputMethodQuery()
+=item  QVariant inputMethodQuery(Qt::InputMethodQuery property)
 
 =item  bool isModified()
 
-=item  void load()
+=item  void load(const QUrl & url)
 
-=item  void load(, , )
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body)
 
-=item  void load(, ,  = QByteArray())
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation, const QByteArray & body = QByteArray())
 
-=item  void load(,  = QNetworkAccessManager::GetOperation,  = QByteArray())
+=item  void load(const QNetworkRequest & request, QNetworkAccessManager::Operation operation = QNetworkAccessManager::GetOperation, const QByteArray & body = QByteArray())
 
 =item  QWebPage * page()
 
-=item  QAction * pageAction()
+=item  QAction * pageAction(QWebPage::WebAction action)
 
-=item  void print()
+=item  void print(QPrinter * arg0)
 
 =item  void reload()
 
@@ -68,29 +67,29 @@ Qt::WebKit::QWebView
 
 =item  QString selectedText()
 
-=item  void setContent(, , )
+=item  void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl)
 
-=item  void setContent(, ,  = QUrl())
+=item  void setContent(const QByteArray & data, const QString & mimeType, const QUrl & baseUrl = QUrl())
 
-=item  void setContent(,  = QString(),  = QUrl())
+=item  void setContent(const QByteArray & data, const QString & mimeType = QString(), const QUrl & baseUrl = QUrl())
 
-=item  void setHtml(, )
+=item  void setHtml(const QString & html, const QUrl & baseUrl)
 
-=item  void setHtml(,  = QUrl())
+=item  void setHtml(const QString & html, const QUrl & baseUrl = QUrl())
 
-=item  void setPage()
+=item  void setPage(QWebPage * page)
 
-=item  void setRenderHint(, )
+=item  void setRenderHint(QPainter::RenderHint hint, bool enabled)
 
-=item  void setRenderHint(,  = true)
+=item  void setRenderHint(QPainter::RenderHint hint, bool enabled = true)
 
-=item  void setRenderHints()
+=item  void setRenderHints(QFlags<QPainter::RenderHint> hints)
 
-=item  void setTextSizeMultiplier()
+=item  void setTextSizeMultiplier(qreal factor)
 
-=item  void setUrl()
+=item  void setUrl(const QUrl & url)
 
-=item  void setZoomFactor()
+=item  void setZoomFactor(qreal factor)
 
 =item  QWebSettings * settings()
 
@@ -102,9 +101,9 @@ Qt::WebKit::QWebView
 
 =item  QString title()
 
-=item  void triggerPageAction(, )
+=item  void triggerPageAction(QWebPage::WebAction action, bool checked)
 
-=item  void triggerPageAction(,  = false)
+=item  void triggerPageAction(QWebPage::WebAction action, bool checked = false)
 
 =item  QUrl url()
 

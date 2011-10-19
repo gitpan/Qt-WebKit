@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -23,7 +23,7 @@ Qt::WebKit::QWebDatabase
 
 =over
 
-=item   QWebDatabase()
+=item   QWebDatabase(const QWebDatabase & other)
 
 =item   ~QWebDatabase()
 
@@ -35,13 +35,13 @@ Qt::WebKit::QWebDatabase
 
 =item  QString name()
 
-=item  QWebDatabase & operator=()
+=item  QWebDatabase & operator=(const QWebDatabase & other)
 
 =item  QWebSecurityOrigin origin()
 
 =item  static void removeAllDatabases()
 
-=item  static void removeDatabase()
+=item  static void removeDatabase(const QWebDatabase & arg0)
 
 =item  qint64 size()
 

@@ -7,8 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Core::QObject/;
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -24,13 +23,13 @@ Qt::WebKit::QWebPage
 
 =over
 
-=item   QWebPage()
+=item   QWebPage(QObject * parent)
 
-=item   QWebPage( = 0)
+=item   QWebPage(QObject * parent = 0)
 
 =item   ~QWebPage()
 
-=item  QAction * action()
+=item  QAction * action(QWebPage::WebAction action)
 
 =item  quint64 bytesReceived()
 
@@ -38,21 +37,21 @@ Qt::WebKit::QWebPage
 
 =item  QWebFrame * currentFrame()
 
-=item  bool event()
+=item  bool event(QEvent * arg0)
 
-=item  bool findText(, )
+=item  bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options)
 
-=item  bool findText(,  = 0)
+=item  bool findText(const QString & subString, QFlags<QWebPage::FindFlag> options = 0)
 
-=item  bool focusNextPrevChild()
+=item  bool focusNextPrevChild(bool next)
 
 =item  bool forwardUnsupportedContent()
 
-=item  QWebFrame * frameAt()
+=item  QWebFrame * frameAt(const QPoint & pos)
 
 =item  QWebHistory * history()
 
-=item  QVariant inputMethodQuery()
+=item  QVariant inputMethodQuery(Qt::InputMethodQuery property)
 
 =item  bool isContentEditable()
 
@@ -72,39 +71,39 @@ Qt::WebKit::QWebPage
 
 =item  QString selectedText()
 
-=item  void setContentEditable()
+=item  void setContentEditable(bool editable)
 
-=item  void setForwardUnsupportedContent()
+=item  void setForwardUnsupportedContent(bool forward)
 
-=item  void setLinkDelegationPolicy()
+=item  void setLinkDelegationPolicy(QWebPage::LinkDelegationPolicy policy)
 
-=item  void setNetworkAccessManager()
+=item  void setNetworkAccessManager(QNetworkAccessManager * manager)
 
-=item  void setPalette()
+=item  void setPalette(const QPalette & palette)
 
-=item  void setPluginFactory()
+=item  void setPluginFactory(QWebPluginFactory * factory)
 
-=item  void setPreferredContentsSize()
+=item  void setPreferredContentsSize(const QSize & size)
 
-=item  void setView()
+=item  void setView(QWidget * view)
 
-=item  void setViewportSize()
+=item  void setViewportSize(const QSize & size)
 
 =item  QWebSettings * settings()
 
 =item  bool shouldInterruptJavaScript()
 
-=item  bool swallowContextMenuEvent()
+=item  bool swallowContextMenuEvent(QContextMenuEvent * event)
 
 =item  quint64 totalBytes()
 
-=item  void triggerAction(, )
+=item  void triggerAction(QWebPage::WebAction action, bool checked)
 
-=item  void triggerAction(,  = false)
+=item  void triggerAction(QWebPage::WebAction action, bool checked = false)
 
 =item  QUndoStack * undoStack()
 
-=item  void updatePositionDependentActions()
+=item  void updatePositionDependentActions(const QPoint & pos)
 
 =item  QWidget * view()
 
