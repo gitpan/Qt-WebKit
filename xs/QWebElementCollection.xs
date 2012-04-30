@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -90,20 +90,6 @@ PPCODE:
       arg00 = reinterpret_cast<QWebElementCollection *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->append(*arg00);
     XSRETURN(0);
-    }
-
-## QWebElement at(int i)
-void
-QWebElementCollection::at(...)
-PREINIT:
-int arg00;
-PPCODE:
-    if (SvIOK(ST(1))) {
-      arg00 = (int)SvIV(ST(1));
-    QWebElement ret = THIS->at(arg00);
-    ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "Qt::WebKit::QWebElement", (void *)new QWebElement(ret));
-    XSRETURN(1);
     }
 
 ## int count()
@@ -198,5 +184,18 @@ PPCODE:
     QWebElement ret = THIS->operator[](arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebElement", (void *)new QWebElement(ret));
+    XSRETURN(1);
+    }
+
+## QList<QWebElement> toList()
+void
+QWebElementCollection::toList(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QWebElement> ret = THIS->toList();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::Template::T002", (void *)new QList<QWebElement>(ret));
     XSRETURN(1);
     }

@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -43,6 +43,20 @@ PPCODE:
     QWebHistoryItem ret = THIS->backItem();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebHistoryItem", (void *)new QWebHistoryItem(ret));
+    XSRETURN(1);
+    }
+
+## QList<QWebHistoryItem> backItems(int maxItems)
+void
+QWebHistory::backItems(...)
+PREINIT:
+int arg00;
+PPCODE:
+    if (SvIOK(ST(1))) {
+      arg00 = (int)SvIV(ST(1));
+    QList<QWebHistoryItem> ret = THIS->backItems(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::Template::T006", (void *)new QList<QWebHistoryItem>(ret));
     XSRETURN(1);
     }
 
@@ -146,6 +160,20 @@ PPCODE:
     XSRETURN(1);
     }
 
+## QList<QWebHistoryItem> forwardItems(int maxItems)
+void
+QWebHistory::forwardItems(...)
+PREINIT:
+int arg00;
+PPCODE:
+    if (SvIOK(ST(1))) {
+      arg00 = (int)SvIV(ST(1));
+    QList<QWebHistoryItem> ret = THIS->forwardItems(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::Template::T006", (void *)new QList<QWebHistoryItem>(ret));
+    XSRETURN(1);
+    }
+
 ## void goToItem(const QWebHistoryItem & item)
 void
 QWebHistory::goToItem(...)
@@ -169,6 +197,19 @@ PPCODE:
     QWebHistoryItem ret = THIS->itemAt(arg00);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::WebKit::QWebHistoryItem", (void *)new QWebHistoryItem(ret));
+    XSRETURN(1);
+    }
+
+## QList<QWebHistoryItem> items()
+void
+QWebHistory::items(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QWebHistoryItem> ret = THIS->items();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::Template::T006", (void *)new QList<QWebHistoryItem>(ret));
     XSRETURN(1);
     }
 

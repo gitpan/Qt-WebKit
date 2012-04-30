@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -52,6 +52,19 @@ PPCODE:
     XSRETURN(0);
     }
 
+## static QList<QWebSecurityOrigin> allOrigins()
+void
+QWebSecurityOrigin::allOrigins(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QWebSecurityOrigin> ret = THIS->allOrigins();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::Template::T000", (void *)new QList<QWebSecurityOrigin>(ret));
+    XSRETURN(1);
+    }
+
 ## qint64 databaseQuota()
 void
 QWebSecurityOrigin::databaseQuota(...)
@@ -75,6 +88,19 @@ PPCODE:
     qint64 ret = THIS->databaseUsage();
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
+    XSRETURN(1);
+    }
+
+## QList<QWebDatabase> databases()
+void
+QWebSecurityOrigin::databases(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QList<QWebDatabase> ret = THIS->databases();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::WebKit::Template::T001", (void *)new QList<QWebDatabase>(ret));
     XSRETURN(1);
     }
 

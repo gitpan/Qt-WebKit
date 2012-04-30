@@ -43,6 +43,14 @@ QWebSettings *                          		T_PTROBJ_0039
 QWebInspector *                         		T_PTROBJ_0040
 QWebSecurityOrigin *                    		T_PTROBJ_0041
 QBool *                                 		T_PTROBJ_0042
+T000 *                                  		T_PTROBJ_0043
+T001 *                                  		T_PTROBJ_0044
+T002 *                                  		T_PTROBJ_0045
+T003 *                                  		T_PTROBJ_0046
+T004 *                                  		T_PTROBJ_0047
+T005 *                                  		T_PTROBJ_0048
+T006 *                                  		T_PTROBJ_0049
+T007 *                                  		T_PTROBJ_0050
 
 ################################################################
 INPUT
@@ -304,6 +312,54 @@ T_PTROBJ_0042
     else
         Perl_croak(aTHX_ \"$var is not of type Qt::Core::QBool\");
 
+T_PTROBJ_0043
+    if (sv_derived_from($arg, \"Qt::WebKit::Template::T000\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::Template::T000\");
+
+T_PTROBJ_0044
+    if (sv_derived_from($arg, \"Qt::WebKit::Template::T001\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::Template::T001\");
+
+T_PTROBJ_0045
+    if (sv_derived_from($arg, \"Qt::WebKit::Template::T002\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::Template::T002\");
+
+T_PTROBJ_0046
+    if (sv_derived_from($arg, \"Qt::WebKit::Template::T003\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::Template::T003\");
+
+T_PTROBJ_0047
+    if (sv_derived_from($arg, \"Qt::WebKit::Template::T004\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::Template::T004\");
+
+T_PTROBJ_0048
+    if (sv_derived_from($arg, \"Qt::WebKit::Template::T005\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::Template::T005\");
+
+T_PTROBJ_0049
+    if (sv_derived_from($arg, \"Qt::WebKit::Template::T006\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::Template::T006\");
+
+T_PTROBJ_0050
+    if (sv_derived_from($arg, \"Qt::WebKit::Template::T007\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::WebKit::Template::T007\");
+
 
 ################################################################
 OUTPUT
@@ -435,4 +491,28 @@ T_PTROBJ_0041
 
 T_PTROBJ_0042
     sv_setref_pv($arg, \"Qt::Core::QBool\", (void *)$var);
+
+T_PTROBJ_0043
+    sv_setref_pv($arg, \"Qt::WebKit::Template::T000\", (void *)$var);
+
+T_PTROBJ_0044
+    sv_setref_pv($arg, \"Qt::WebKit::Template::T001\", (void *)$var);
+
+T_PTROBJ_0045
+    sv_setref_pv($arg, \"Qt::WebKit::Template::T002\", (void *)$var);
+
+T_PTROBJ_0046
+    sv_setref_pv($arg, \"Qt::WebKit::Template::T003\", (void *)$var);
+
+T_PTROBJ_0047
+    sv_setref_pv($arg, \"Qt::WebKit::Template::T004\", (void *)$var);
+
+T_PTROBJ_0048
+    sv_setref_pv($arg, \"Qt::WebKit::Template::T005\", (void *)$var);
+
+T_PTROBJ_0049
+    sv_setref_pv($arg, \"Qt::WebKit::Template::T006\", (void *)$var);
+
+T_PTROBJ_0050
+    sv_setref_pv($arg, \"Qt::WebKit::Template::T007\", (void *)$var);
 

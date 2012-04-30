@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 
 
 # FIXME: operator overload
@@ -27,6 +27,8 @@ Qt::WebKit::QWebHistory
 
 =item  QWebHistoryItem backItem()
 
+=item  QList<QWebHistoryItem> backItems(int maxItems)
+
 =item  bool canGoBack()
 
 =item  bool canGoForward()
@@ -43,9 +45,13 @@ Qt::WebKit::QWebHistory
 
 =item  QWebHistoryItem forwardItem()
 
+=item  QList<QWebHistoryItem> forwardItems(int maxItems)
+
 =item  void goToItem(const QWebHistoryItem & item)
 
 =item  QWebHistoryItem itemAt(int i)
+
+=item  QList<QWebHistoryItem> items()
 
 =item  int maximumItemCount()
 
@@ -71,7 +77,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

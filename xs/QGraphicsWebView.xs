@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -131,7 +131,7 @@ PPCODE:
       {
         if (sv_isa(ST(1), "Qt::Core::QString") && SvIOK(ST(2))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
-      arg01 = QFlags<QWebPage::FindFlag>((int)SvIV(ST(2)));
+      arg01 = QFlags<QWebPage::FindFlag>((QWebPage::FindFlag)SvIV(ST(2)));
     bool ret = THIS->findText(*arg00, arg01);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);

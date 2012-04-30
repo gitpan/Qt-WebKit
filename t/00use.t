@@ -5,10 +5,11 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 18;
+use Test::More tests => 19;
 BEGIN {
 use_ok('Qt::WebKit');
 use_ok('Qt::WebKit');
+use_ok('Qt::WebKit::Template');
 use_ok('Qt::WebKit::QWebSettings');
 use_ok('Qt::WebKit::QWebHistory');
 use_ok('Qt::WebKit::QWebView');
